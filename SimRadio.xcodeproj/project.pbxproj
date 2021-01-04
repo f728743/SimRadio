@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */; };
-		7C6E1EAE25A0F2DF00B4B9C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAD25A0F2DF00B4B9C8 /* ContentView.swift */; };
+		7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */; };
 		7C6E1EB025A0F2E000B4B9C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */; };
 		7C6E1EB325A0F2E000B4B9C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB225A0F2E000B4B9C8 /* Preview Assets.xcassets */; };
 		7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		7C6E1EA825A0F2DF00B4B9C8 /* SimRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimRadioApp.swift; sourceTree = "<group>"; };
-		7C6E1EAD25A0F2DF00B4B9C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C6E1EB225A0F2E000B4B9C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */,
-				7C6E1EAD25A0F2DF00B4B9C8 /* ContentView.swift */,
+				7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */,
 				7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */,
 				7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */,
 				7C6E1EB925A0F2E000B4B9C8 /* Info.plist */,
@@ -167,7 +167,7 @@
 			files = (
 				7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
-				7C6E1EAE25A0F2DF00B4B9C8 /* ContentView.swift in Sources */,
+				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
 				7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
