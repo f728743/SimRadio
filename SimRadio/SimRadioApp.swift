@@ -11,6 +11,10 @@ import SwiftUI
 struct SimRadioApp: App {
     let persistenceController = PersistenceController.shared
 
+    init() {
+        UINavigationBar.appearance().tintColor = .systemPink
+    }
+
     var body: some Scene {
         WindowGroup {
             LibraryView()

@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */; };
 		7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */; };
 		7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */; };
 		7C6E1EB025A0F2E000B4B9C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */; };
 		7C6E1EB325A0F2E000B4B9C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB225A0F2E000B4B9C8 /* Preview Assets.xcassets */; };
 		7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */; };
 		7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB625A0F2E000B4B9C8 /* SimRadio.xcdatamodeld */; };
+		7CD1702E25A31BAB008A7EAD /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* SeriesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		7C6E1EA825A0F2DF00B4B9C8 /* SimRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimRadioApp.swift; sourceTree = "<group>"; };
 		7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7C6E1EB725A0F2E000B4B9C8 /* SimRadio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimRadio.xcdatamodel; sourceTree = "<group>"; };
 		7C6E1EB925A0F2E000B4B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CD1702D25A31BAB008A7EAD /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C13129225A3145600A2469F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		7C13129325A3147200A2469F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7CD1702C25A31B7C008A7EAD /* Series */,
+				7C13129825A3151B00A2469F /* Library */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		7C13129825A3151B00A2469F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		7C6E1E9F25A0F2DF00B4B9C8 = {
 			isa = PBXGroup;
 			children = (
@@ -57,7 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */,
-				7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */,
+				7C13129325A3147200A2469F /* Scenes */,
+				7C13129225A3145600A2469F /* Helpers */,
 				7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */,
 				7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */,
 				7C6E1EB925A0F2E000B4B9C8 /* Info.plist */,
@@ -73,6 +103,14 @@
 				7C6E1EB225A0F2E000B4B9C8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7CD1702C25A31B7C008A7EAD /* Series */ = {
+			isa = PBXGroup;
+			children = (
+				7CD1702D25A31BAB008A7EAD /* SeriesView.swift */,
+			);
+			name = Series;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,9 +204,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */,
+				7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
 				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
 				7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */,
+				7CD1702E25A31BAB008A7EAD /* SeriesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
