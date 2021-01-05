@@ -88,14 +88,14 @@ struct SeriesView: View {
                     dj: "Nate Williams and Stephen Pope")
     ]
 
-    private var columns = [GridItem(.fixed(Settings.cellWidth), spacing: 0)]
-
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, spacing: 0) {
+            VStack {
                 SeriesInfoCell(series: series)
                 ForEach(0 ..< stations.count, id: \.self) { index in
-                    StationInfoCell(station: stations[index])
+                    StationInfoCell(station: stations[index]).onTapGesture {
+                        print("Tapped!")
+                    }
                 }
             }
         }.navigationBarTitle("", displayMode: .inline)
@@ -116,17 +116,17 @@ struct SeriesInfoCell: View {
                     .fill(Color(UIColor.systemBackground))
                     .frame(width: Settings.coverArtSize, height: Settings.coverArtSize)
                     .shadow(color: Color(.systemGray3), radius: 20.0)
-                    
+
                 Image(series.coverArt)
                     .resizable()
                     .frame(width: Settings.coverArtSize, height: Settings.coverArtSize)
                     .cornerRadius(Settings.cornerRadius)
                     .overlay(RoundedRectangle(cornerRadius: Settings.cornerRadius)
-                                .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
-                    
+                        .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
+
             }.padding()
             Text(series.title).font(.headline)
-            Text(series.description).font(.title3).foregroundColor(Color(.systemPink))
+            Text(series.description).font(.title3).foregroundColor(Color(.systemRed))
             Divider().padding(.leading, Settings.separatorInset)
         }
     }

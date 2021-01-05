@@ -85,9 +85,9 @@
 		7C6E1EAA25A0F2DF00B4B9C8 /* SimRadio */ = {
 			isa = PBXGroup;
 			children = (
-				7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */,
 				7C13129325A3147200A2469F /* Scenes */,
 				7C13129225A3145600A2469F /* Helpers */,
+				7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */,
 				7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */,
 				7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */,
 				7C6E1EB925A0F2E000B4B9C8 /* Info.plist */,
