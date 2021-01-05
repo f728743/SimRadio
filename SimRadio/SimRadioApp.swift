@@ -12,7 +12,7 @@ struct SimRadioApp: App {
     let persistenceController = PersistenceController.shared
 
     init() {
-        UINavigationBar.appearance().tintColor = .systemPink
+        UINavigationBar.appearance().tintColor = .systemRed
     }
 
     var body: some Scene {

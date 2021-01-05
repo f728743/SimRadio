@@ -16,8 +16,9 @@ struct StationInfo: Identifiable {
 }
 
 struct SeriesView: View {
+    let series = SeriesInfo(title: "GTA V", description: "Rockstar Games", coverArt: "gta_v")
     let stations: [StationInfo] = [
-        StationInfo(title: "Los Santos Rock Radio",
+        StationInfo(title: "Los Santos Rock Radio Pop music, electronic dance music, electro house",
                     genre: "Classic rock, soft rock, pop rock",
                     coverArt: "radio_01_class_rock",
                     dj: "Kenny Loggins"),
@@ -86,31 +87,91 @@ struct SeriesView: View {
                     coverArt: "radio_18_90s_rock",
                     dj: "Nate Williams and Stephen Pope")
     ]
-    
+
     var body: some View {
-            List(stations) { station in
+        ScrollView {
+            VStack {
+                SeriesInfoCell(series: series)
+                ForEach(0 ..< stations.count, id: \.self) { index in
+                    StationInfoCell(station: stations[index]).onTapGesture {
+                        print("Tapped!")
+                    }
+                }
+            }
+        }.navigationBarTitle("", displayMode: .inline)
+    }
+
+    enum Settings {
+        static let cellWidth: CGFloat = UIScreen.main.bounds.width
+    }
+}
+
+struct SeriesInfoCell: View {
+    let series: SeriesInfo
+
+    var body: some View {
+        VStack {
+            ZStack {
+                RoundedRectangle(cornerRadius: Settings.cornerRadius)
+                    .fill(Color(UIColor.systemBackground))
+                    .frame(width: Settings.coverArtSize, height: Settings.coverArtSize)
+                    .shadow(color: Color(.systemGray3), radius: 20.0)
+
+                Image(series.coverArt)
+                    .resizable()
+                    .frame(width: Settings.coverArtSize, height: Settings.coverArtSize)
+                    .cornerRadius(Settings.cornerRadius)
+                    .overlay(RoundedRectangle(cornerRadius: Settings.cornerRadius)
+                        .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
+
+            }.padding()
+            Text(series.title).font(.headline)
+            Text(series.description).font(.title3).foregroundColor(Color(.systemRed))
+            Divider().padding(.leading, Settings.separatorInset)
+        }
+    }
+
+    enum Settings {
+        static let coverArtSize: CGFloat = UIScreen.main.bounds.width - 72 * 2
+        static let cornerRadius: CGFloat = 6
+        static let separatorInset: CGFloat = 20
+    }
+}
+
+struct StationInfoCell: View {
+    let station: StationInfo
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(alignment: .top, spacing: Settings.textInset) {
                 Image(station.coverArt)
                     .resizable()
                     .frame(width: Settings.coverArtSize, height: Settings.coverArtSize)
                     .cornerRadius(Settings.cornerRadius)
                     .overlay(RoundedRectangle(cornerRadius: Settings.cornerRadius)
                         .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
+
                 VStack(alignment: .leading, spacing: Settings.textSpacing) {
                     Text(station.title)
-                    Text(station.dj ?? "").font(.footnote).foregroundColor(Color(UIColor.secondaryLabel))
-                }
+                    Text(station.dj ?? "")
+                        .font(.footnote)
+                        .foregroundColor(Color(UIColor.secondaryLabel))
+
+                }.lineLimit(1)
+                Spacer()
             }
+            .padding(.vertical, 4)
+            .padding(.leading, Settings.coverArtInset)
+            Divider().padding(.leading, Settings.separatorInset)
+        } // .background(Color.yellow)
     }
+
     enum Settings {
+        static let coverArtInset: CGFloat = 20
+        static let separatorInset: CGFloat = coverArtInset + coverArtSize + textInset
         static let coverArtSize: CGFloat = 48
-        static let cornerRadius: CGFloat = 4
-        static let textSpacing: CGFloat = 6
-    }
-
-}
-
-struct SeriesView_Previews: PreviewProvider {
-    static var previews: some View {
-        SeriesView()
+        static let cornerRadius: CGFloat = 3
+        static let textSpacing: CGFloat = 4
+        static let textInset: CGFloat = 16
     }
 }
