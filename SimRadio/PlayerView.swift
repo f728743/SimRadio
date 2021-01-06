@@ -26,116 +26,145 @@ struct PlayerView: View {
     let title = "Los Santos Rock Radio"
     
     var body: some View {
-        VStack {
-            Capsule()
-                .fill(Color.gray)
-                .frame(width: shape == .expanded ? 60 : 0, height: shape == .expanded ? 4 : 0)
-                .opacity(shape == .expanded ? 1 : 0)
-                .padding(.top, shape == .expanded ? safeArea?.top : 0)
-                .padding(.vertical, shape == .expanded ? 30 : 0)
+        ZStack(alignment: .top) {
             
-            HStack(spacing: 15) {
+            VStack {
+                Capsule()
+                    .fill(Color.gray)
+                    .frame(width: shape == .expanded ? 60 : 0, height: shape == .expanded ? 4 : 0)
+                    .opacity(shape == .expanded ? 1 : 0)
+                    .padding(.top, shape == .expanded ? safeArea?.top : 0)
+                    .padding(.vertical, shape == .expanded ? 30 : 0)
                 
-                if shape == .expanded { Spacer(minLength: 0) }
-                
-                Image("radio_01_class_rock")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: Settings.coverArtSize(for: shape),
-                           height: Settings.coverArtSize(for: shape))
-                    .cornerRadius(15)
-                
-                if shape == .collapsed {
-                    Text(title).opacity(shape == .collapsed ? 1 : 0)
-                }
-                
-                Spacer(minLength: 0)
-                
-                if shape == .collapsed {
-                    Button(action: {}, label: {
-                        Image(systemName: "play.fill")
-                            .font(.title2)
-                            .foregroundColor(.primary)
-                    })
+                HStack(spacing: 15) {
                     
-                    Button(action: {}, label: {
-                        Image(systemName: "forward.fill")
-                            .font(.title2)
-                            .foregroundColor(.primary)
-                    })
-                }
-            }
-            .padding(.horizontal)
-            
-            VStack(spacing: 15) {
-                Spacer(minLength: 0)
-                
-                HStack {
-                    if shape == .expanded {
-                        Text(title).font(.title3)
-                    }
+                    if shape == .expanded { Spacer(minLength: 0) }
+                    
+                    Image("radio_01_class_rock")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: Settings.coverArtSize(for: shape),
+                               height: Settings.coverArtSize(for: shape))
+                        .cornerRadius(15)
                     
                     Spacer(minLength: 0)
                     
-                    Button(action: {}, label: {
-                        Image(systemName: "ellipsis.circle")
+                }
+                .padding(.horizontal)
+                
+                VStack(spacing: 15) {
+                    Spacer(minLength: 0)
+                    
+                    HStack {
+                        if shape == .expanded {
+                            Text(title).font(.title3)
+                        }
+                        
+                        Spacer(minLength: 0)
+                        
+                        Button(action: {}, label: {
+                            Image(systemName: "ellipsis.circle")
+                                .font(.title2)
+                                .foregroundColor(.primary)
+                        })
+                    }
+                    .padding()
+                    .padding(.top, 20)
+                    
+                    LiveIndicatorView().padding()
+                    
+                    HStack(spacing: 64) {
+                        Button(action: backward) {
+                            Image(systemName: "backward.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.primary)
+                        }
+
+                        Button(action: play) {
+                            Image(systemName: "play.fill")
+                                .font(.system(size: 50))
+                                .foregroundColor(.primary)
+                        }
+
+//                        Button(action: stop) {
+//                            Image(systemName: "stop.fill")
+//                                .font(.largeTitle)
+//                                .foregroundColor(.primary)
+//                        }
+                        
+                        Button(action: forward) {
+                            Image(systemName: "forward.fill")
+                                .font(.largeTitle)
+                                .foregroundColor(.primary)
+                        }
+
+                    }
+                    .padding()
+                    
+                    Spacer(minLength: 0)
+                    
+                    HStack(spacing: 15) {
+                        Image(systemName: "speaker.fill")
+                        
+                        Slider(value: $volume)
+                        
+                        Image(systemName: "speaker.wave.2.fill")
+                    }
+                    .padding()
+                    
+                    Button(action: airplay) {
+                        Image(systemName: "airplayaudio")
                             .font(.title2)
                             .foregroundColor(.primary)
-                    })
-                }
-                .padding()
-                .padding(.top, 20)
-                
-                LiveIndicatorView().padding()
-                
-                Button(action: stop) {
-                    Image(systemName: "stop.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(.primary)
-                }
-                .padding()
-                
-                Spacer(minLength: 0)
-                
-                HStack(spacing: 15) {
-                    Image(systemName: "speaker.fill")
+                    }
                     
-                    Slider(value: $volume)
-                    
-                    Image(systemName: "speaker.wave.2.fill")
+                    .padding(.bottom, safeArea?.bottom == 0 ? 15 : safeArea?.bottom)
                 }
-                .padding()
-                
-                Button(action: airplay) {
-                    Image(systemName: "airplayaudio")
-                        .font(.title2)
-                        .foregroundColor(.primary)
-                }
-                
-                .padding(.bottom, safeArea?.bottom == 0 ? 15 : safeArea?.bottom)
+                // strech effect
+                .frame(height: shape == .expanded ? nil : 0)
+                .opacity(shape == .expanded ? 1 : 0)
             }
-            // strech effect
-            .frame(height: shape == .expanded ? nil : 0)
-            .opacity(shape == .expanded ? 1 : 0)
+            // expanding to full screen when clicked
+            .frame(maxHeight: shape == .expanded ? .infinity : Settings.collapsedHeight)
+            
+            // Divider Line For Separting Miniplayer And Tab Bar
+            .background(
+                VStack(spacing: 0) {
+                    BlurView()
+                    Divider()
+                }
+                .onTapGesture {
+                    withAnimation(.spring()) { shape = .expanded }
+                }
+            )
+            .cornerRadius(shape == .expanded ? Settings.expandCornerRadius : 0)
+            .offset(y: shape == .expanded ? 0 : -Settings.collapsedBottomOffset)
+            
+            ZStack {
+//                Color(.yellow).opacity(0.3).onTapGesture {
+//                    withAnimation(.spring()) { shape = .expanded }
+//                }
+                
+                HStack {
+                    Text(title).padding(.leading, Settings.collapsedTitlePadding)
+                    Spacer(minLength: 0)
+                    HStack(spacing: 20) {
+                        Button(action: play) { Image(systemName: "play.fill") }
+                        Button(action: forward) { Image(systemName: "forward.fill") }
+                    }.font(.title2)
+                    .foregroundColor(.primary)
+                }
+                .padding(.horizontal, Settings.horizontalPadding)
+                .opacity(shape == .collapsed ? 1 : 0)
+                
+            }.frame(height: Settings.collapsedHeight)
+            
         }
-        // expanding to full screen when clicked
-        .frame(maxHeight: shape == .expanded ? .infinity : Settings.collapsedHeight)
         
-        // Divider Line For Separting Miniplayer And Tab Bar
-        .background(
-            VStack(spacing: 0) {
-                BlurView()
-                Divider()
-            }
-            .onTapGesture {
-                withAnimation(.spring()) { shape = .expanded }
-            }
-        )
-        .cornerRadius(shape == .expanded ? Settings.expandCornerRadius : 0)
-        .offset(y: shape == .expanded ? 0 : -Settings.collapsedBottomOffset)
         .offset(y: offset)
         .gesture(DragGesture().onEnded(onended(value:)).onChanged(onchanged(value:)))
         .ignoresSafeArea()
+        
     }
     
     func onchanged(value: DragGesture.Value) {
@@ -159,19 +188,34 @@ struct PlayerView: View {
         print("stop pressed")
     }
     
+    func play() {
+        print("play pressed")
+    }
+    
+    func backward() {
+        print("backward pressed")
+    }
+
+    func forward() {
+        print("forward pressed")
+    }
+    
     func airplay() {
         print("airplay pressed")
     }
     
     enum Settings {
         static func coverArtSize(for shape: PlayerShape) -> CGFloat {
-            shape == .expanded ? UIScreen.main.bounds.height / 3 : 55
+            shape == .expanded ? UIScreen.main.bounds.height / 3 : 48
         }
         
         static let expandedCoverArtSize: CGFloat = UIScreen.main.bounds.height / 3
         static let expandCornerRadius: CGFloat = 40
+        
+        static let collapsedTitlePadding: CGFloat = 64
         static let collapsedHeight: CGFloat = 80
         static let collapsedBottomOffset: CGFloat = 0
+        static let horizontalPadding: CGFloat = 20
     }
 }
 
@@ -202,6 +246,5 @@ struct LiveIndicatorView: View {
         static let opaque: Color = Color.primary.opacity(0.7)
         static let transparent: Color = Color.primary.opacity(0.1)
         static let barWidth: CGFloat = 4
-        static let separatorInset: CGFloat = 20
     }
 }
