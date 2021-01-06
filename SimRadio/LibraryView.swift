@@ -14,8 +14,12 @@ struct SeriesInfo: Codable {
 }
 
 struct LibraryView: View {
+    
+    @State var playerShape = PlayerShape.collapsed
+    @Namespace var animation
+    
     private var columns = Array(repeating: GridItem(.flexible(), spacing: Settings.padding), count: 2)
-
+    
     let series = [
         SeriesInfo(title: "GTA V", description: "Rockstar Games", coverArt: "gta_v"),
         SeriesInfo(title: "Rebel Radio (GTA V)", description: "Rockstar Games", coverArt: "radio_06_country"),
@@ -26,10 +30,10 @@ struct LibraryView: View {
                     "radio_05_talk_01", "radio_06_country", "radio_07_dance_01", "radio_08_mexican",
                     "radio_09_hiphop_old", "radio_11_talk_02", "radio_12_reggae", "radio_13_jazz",
                     "radio_14_dance_02", "radio_15_motown", "radio_16_silverlake", "radio_17_funk"]
-
+    
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-        NavigationView {
+            NavigationView {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Settings.padding) {
                         ForEach(0 ..< series.count, id: \.self) { index in
@@ -50,11 +54,11 @@ struct LibraryView: View {
                     }
                     .padding(Settings.padding)
                 }.navigationTitle("Library")
-                
             }
-        }
+            PlayerView(animation: animation, shape: $playerShape)
+        }.ignoresSafeArea()
     }
-
+    
     enum Settings {
         static let padding: CGFloat = 20
         static let coverArtSize: CGFloat = (UIScreen.main.bounds.width - padding * 3) / 2

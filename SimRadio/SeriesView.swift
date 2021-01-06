@@ -18,7 +18,7 @@ struct StationInfo: Identifiable {
 struct SeriesView: View {
     let series = SeriesInfo(title: "GTA V", description: "Rockstar Games", coverArt: "gta_v")
     let stations: [StationInfo] = [
-        StationInfo(title: "Los Santos Rock Radio Pop music, electronic dance music, electro house",
+        StationInfo(title: "Los Santos Rock Radio",
                     genre: "Classic rock, soft rock, pop rock",
                     coverArt: "radio_01_class_rock",
                     dj: "Kenny Loggins"),
@@ -125,7 +125,7 @@ struct SeriesInfoCell: View {
                         .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
 
             }.padding()
-            Text(series.title).font(.headline)
+            Text(series.title).font(.title3).fontWeight(.semibold)
             Text(series.description).font(.title3).foregroundColor(Color(.systemRed))
             Divider().padding(.leading, Settings.separatorInset)
         }
