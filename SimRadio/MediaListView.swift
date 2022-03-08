@@ -1,5 +1,5 @@
 //
-//  SeriesView.swift
+//  MediaListView.swift
 //  SimRadio
 //
 //  Created by Alexey Vorobyov on 04.01.2021.
@@ -15,7 +15,13 @@ struct StationInfo: Identifiable {
     let dj: String?
 }
 
-struct SeriesView: View {
+struct SeriesInfo: Codable {
+    let title: String
+    let description: String
+    let coverArt: String
+}
+
+struct MediaListView: View {
     let series = SeriesInfo(title: "GTA V", description: "Rockstar Games", coverArt: "gta_v")
     let stations: [StationInfo] = [
         StationInfo(title: "Los Santos Rock Radio",
@@ -93,7 +99,7 @@ struct SeriesView: View {
             VStack {
                 SeriesInfoCell(series: series)
                 ForEach(0 ..< stations.count, id: \.self) { index in
-                    StationInfoCell(station: stations[index]).onTapGesture {
+                    MediaListItem(station: stations[index]).onTapGesture {
                         print("Tapped!")
                     }
                 }
@@ -135,43 +141,5 @@ struct SeriesInfoCell: View {
         static let coverArtSize: CGFloat = UIScreen.main.bounds.width - 72 * 2
         static let cornerRadius: CGFloat = 6
         static let separatorInset: CGFloat = 20
-    }
-}
-
-struct StationInfoCell: View {
-    let station: StationInfo
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            HStack(alignment: .top, spacing: Settings.textInset) {
-                Image(station.coverArt)
-                    .resizable()
-                    .frame(width: Settings.coverArtSize, height: Settings.coverArtSize)
-                    .cornerRadius(Settings.cornerRadius)
-                    .overlay(RoundedRectangle(cornerRadius: Settings.cornerRadius)
-                        .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
-
-                VStack(alignment: .leading, spacing: Settings.textSpacing) {
-                    Text(station.title)
-                    Text(station.dj ?? "")
-                        .font(.footnote)
-                        .foregroundColor(Color(UIColor.secondaryLabel))
-
-                }.lineLimit(1)
-                Spacer()
-            }
-            .padding(.vertical, 4)
-            .padding(.leading, Settings.coverArtInset)
-            Divider().padding(.leading, Settings.separatorInset)
-        } // .background(Color.yellow)
-    }
-
-    enum Settings {
-        static let coverArtInset: CGFloat = 20
-        static let separatorInset: CGFloat = coverArtInset + coverArtSize + textInset
-        static let coverArtSize: CGFloat = 48
-        static let cornerRadius: CGFloat = 3
-        static let textSpacing: CGFloat = 4
-        static let textInset: CGFloat = 16
     }
 }

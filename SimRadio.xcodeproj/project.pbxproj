@@ -14,7 +14,16 @@
 		7C6E1EB325A0F2E000B4B9C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB225A0F2E000B4B9C8 /* Preview Assets.xcassets */; };
 		7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */; };
 		7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB625A0F2E000B4B9C8 /* SimRadio.xcdatamodeld */; };
-		7CD1702E25A31BAB008A7EAD /* SeriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* SeriesView.swift */; };
+		7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */; };
+		7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99027D77A4F0079F591 /* MediaList.swift */; };
+		7CADC99327D780AD0079F591 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99227D780AD0079F591 /* Player.swift */; };
+		7CADC99727D789D50079F591 /* MediaListPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99627D789D50079F591 /* MediaListPlayerViewModel.swift */; };
+		7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99827D78B2D0079F591 /* MediaSource.swift */; };
+		7CADC99B27D78B6E0079F591 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99A27D78B6E0079F591 /* Library.swift */; };
+		7CADC99D27D91C790079F591 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99C27D91C790079F591 /* LibraryViewModel.swift */; };
+		7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99E27D920760079F591 /* LibraryItemView.swift */; };
+		7CADC9A127D930640079F591 /* MediaListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC9A027D930640079F591 /* MediaListItem.swift */; };
+		7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* MediaListView.swift */; };
 		D6590B3E25A4CA0100598B6C /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B3D25A4CA0100598B6C /* PlayerView.swift */; };
 		D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B4125A4CA2900598B6C /* BlurView.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +38,16 @@
 		7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7C6E1EB725A0F2E000B4B9C8 /* SimRadio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimRadio.xcdatamodel; sourceTree = "<group>"; };
 		7C6E1EB925A0F2E000B4B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CD1702D25A31BAB008A7EAD /* SeriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesView.swift; sourceTree = "<group>"; };
+		7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveIndicatorView.swift; sourceTree = "<group>"; };
+		7CADC99027D77A4F0079F591 /* MediaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaList.swift; sourceTree = "<group>"; };
+		7CADC99227D780AD0079F591 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		7CADC99627D789D50079F591 /* MediaListPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListPlayerViewModel.swift; sourceTree = "<group>"; };
+		7CADC99827D78B2D0079F591 /* MediaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSource.swift; sourceTree = "<group>"; };
+		7CADC99A27D78B6E0079F591 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		7CADC99C27D91C790079F591 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		7CADC99E27D920760079F591 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
+		7CADC9A027D930640079F591 /* MediaListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListItem.swift; sourceTree = "<group>"; };
+		7CD1702D25A31BAB008A7EAD /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
 		D6590B3D25A4CA0100598B6C /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		D6590B4125A4CA2900598B6C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,20 +71,22 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		7C13129325A3147200A2469F /* Scenes */ = {
+		7C13129325A3147200A2469F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				D6590B3C25A4C9EA00598B6C /* Player */,
 				7CD1702C25A31B7C008A7EAD /* Series */,
 				7C13129825A3151B00A2469F /* Library */,
+				D6590B4125A4CA2900598B6C /* BlurView.swift */,
 			);
-			name = Scenes;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		7C13129825A3151B00A2469F /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */,
+				7CADC99E27D920760079F591 /* LibraryItemView.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -90,10 +110,12 @@
 		7C6E1EAA25A0F2DF00B4B9C8 /* SimRadio */ = {
 			isa = PBXGroup;
 			children = (
-				7C13129325A3147200A2469F /* Scenes */,
+				7CADC98F27D779E50079F591 /* Models */,
+				7CADC99527D789A40079F591 /* ViewModels */,
+				7C13129325A3147200A2469F /* Views */,
+				7CADC99427D780C90079F591 /* Services */,
 				7C13129225A3145600A2469F /* Helpers */,
 				7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */,
-				D6590B4125A4CA2900598B6C /* BlurView.swift */,
 				7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */,
 				7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */,
 				7C6E1EB925A0F2E000B4B9C8 /* Info.plist */,
@@ -111,10 +133,38 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		7CADC98F27D779E50079F591 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7CADC99A27D78B6E0079F591 /* Library.swift */,
+				7CADC99027D77A4F0079F591 /* MediaList.swift */,
+				7CADC99827D78B2D0079F591 /* MediaSource.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		7CADC99427D780C90079F591 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7CADC99227D780AD0079F591 /* Player.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		7CADC99527D789A40079F591 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				7CADC99627D789D50079F591 /* MediaListPlayerViewModel.swift */,
+				7CADC99C27D91C790079F591 /* LibraryViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		7CD1702C25A31B7C008A7EAD /* Series */ = {
 			isa = PBXGroup;
 			children = (
-				7CD1702D25A31BAB008A7EAD /* SeriesView.swift */,
+				7CD1702D25A31BAB008A7EAD /* MediaListView.swift */,
+				7CADC9A027D930640079F591 /* MediaListItem.swift */,
 			);
 			name = Series;
 			sourceTree = "<group>";
@@ -123,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				D6590B3D25A4CA0100598B6C /* PlayerView.swift */,
+				7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -137,7 +188,7 @@
 				7C6E1EA425A0F2DF00B4B9C8 /* Sources */,
 				7C6E1EA525A0F2DF00B4B9C8 /* Frameworks */,
 				7C6E1EA625A0F2DF00B4B9C8 /* Resources */,
-				7C86436D25A0F4BF006DF776 /* ShellScript */,
+				7C86436D25A0F4BF006DF776 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -193,7 +244,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C86436D25A0F4BF006DF776 /* ShellScript */ = {
+		7C86436D25A0F4BF006DF776 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -202,13 +253,14 @@
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, please install it by command 'brew install swiftlint'\"\n  exit 1\nfi\n";
+			shellScript = "PATH=${PATH}:/opt/homebrew/bin\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"error: SwiftLint does not exist, please install it by command 'brew install swiftlint'\"\n  exit 1\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -217,14 +269,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CADC99327D780AD0079F591 /* Player.swift in Sources */,
+				7CADC99B27D78B6E0079F591 /* Library.swift in Sources */,
+				7CADC99727D789D50079F591 /* MediaListPlayerViewModel.swift in Sources */,
 				7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */,
 				D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */,
 				7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */,
+				7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */,
+				7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */,
+				7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */,
 				D6590B3E25A4CA0100598B6C /* PlayerView.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
 				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
 				7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */,
-				7CD1702E25A31BAB008A7EAD /* SeriesView.swift in Sources */,
+				7CADC99D27D91C790079F591 /* LibraryViewModel.swift in Sources */,
+				7CADC9A127D930640079F591 /* MediaListItem.swift in Sources */,
+				7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */,
+				7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,7 +17,7 @@ struct SimRadioApp: App {
 
     var body: some Scene {
         WindowGroup {
-            LibraryView()
+            LibraryView(viewModel: LibraryViewModel(library: Library.makeMock()))
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
