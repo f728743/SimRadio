@@ -19,7 +19,7 @@ struct PlayerView: View {
     @State var offset: CGFloat = 0
     let title = "Los Santos Rock Radio"
 
-    @ObservedObject var viewModel: PlayerViewModel
+    @StateObject var viewModel: ViewModel
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -113,28 +113,18 @@ struct PlayerView: View {
         HStack(spacing: 64) {
             Button(action: backward) {
                 Image(systemName: "backward.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.primary)
             }
-
             Button(action: play) {
                 Image(systemName: "play.fill")
                     .font(.system(size: 50))
-                    .foregroundColor(.primary)
             }
-
-            //            Button(action: stop) {
-            //                Image(systemName: "stop.fill")
-            //                    .font(.largeTitle)
-            //                    .foregroundColor(.primary)
-            //            }
-
             Button(action: forward) {
                 Image(systemName: "forward.fill")
-                    .font(.largeTitle)
-                    .foregroundColor(.primary)
             }
+            
         }
+        .font(.largeTitle)
+        .foregroundColor(.primary)
         .padding()
     }
 
@@ -225,5 +215,15 @@ struct PlayerView: View {
         static let collapsedHeight: CGFloat = 80
         static let collapsedBottomOffset: CGFloat = 0
         static let horizontalPadding: CGFloat = 20
+    }
+}
+
+struct PlayerView_Previews: PreviewProvider {
+    @State static var playerShape = PlayerView.Shape.maximized
+    static var previews: some View {
+        PlayerView(
+            shape: $playerShape,
+            viewModel: PlayerView.ViewModel(library: Library.makeMock())
+        )
     }
 }

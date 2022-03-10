@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */; };
+		7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */; };
+		7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */; };
 		7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */; };
 		7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */; };
 		7C6E1EB025A0F2E000B4B9C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */; };
@@ -16,13 +18,12 @@
 		7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB625A0F2E000B4B9C8 /* SimRadio.xcdatamodeld */; };
 		7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */; };
 		7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99027D77A4F0079F591 /* MediaList.swift */; };
-		7CADC99327D780AD0079F591 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99227D780AD0079F591 /* Player.swift */; };
-		7CADC99727D789D50079F591 /* MediaListPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99627D789D50079F591 /* MediaListPlayerViewModel.swift */; };
+		7CADC99727D789D50079F591 /* PlayerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */; };
 		7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99827D78B2D0079F591 /* MediaSource.swift */; };
 		7CADC99B27D78B6E0079F591 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99A27D78B6E0079F591 /* Library.swift */; };
-		7CADC99D27D91C790079F591 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99C27D91C790079F591 /* LibraryViewModel.swift */; };
+		7CADC99D27D91C790079F591 /* LibraryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */; };
 		7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99E27D920760079F591 /* LibraryItemView.swift */; };
-		7CADC9A127D930640079F591 /* MediaListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC9A027D930640079F591 /* MediaListItem.swift */; };
+		7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC9A027D930640079F591 /* MediaListItemView.swift */; };
 		7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* MediaListView.swift */; };
 		D6590B3E25A4CA0100598B6C /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B3D25A4CA0100598B6C /* PlayerView.swift */; };
 		D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B4125A4CA2900598B6C /* BlurView.swift */; };
@@ -30,6 +31,8 @@
 
 /* Begin PBXFileReference section */
 		7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaListView-ViewModel.swift"; sourceTree = "<group>"; };
+		7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtView.swift; sourceTree = "<group>"; };
 		7C6E1EA825A0F2DF00B4B9C8 /* SimRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimRadioApp.swift; sourceTree = "<group>"; };
 		7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -40,13 +43,12 @@
 		7C6E1EB925A0F2E000B4B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveIndicatorView.swift; sourceTree = "<group>"; };
 		7CADC99027D77A4F0079F591 /* MediaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaList.swift; sourceTree = "<group>"; };
-		7CADC99227D780AD0079F591 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		7CADC99627D789D50079F591 /* MediaListPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListPlayerViewModel.swift; sourceTree = "<group>"; };
+		7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerView-ViewModel.swift"; sourceTree = "<group>"; };
 		7CADC99827D78B2D0079F591 /* MediaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSource.swift; sourceTree = "<group>"; };
 		7CADC99A27D78B6E0079F591 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
-		7CADC99C27D91C790079F591 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryView-ViewModel.swift"; sourceTree = "<group>"; };
 		7CADC99E27D920760079F591 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
-		7CADC9A027D930640079F591 /* MediaListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListItem.swift; sourceTree = "<group>"; };
+		7CADC9A027D930640079F591 /* MediaListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListItemView.swift; sourceTree = "<group>"; };
 		7CD1702D25A31BAB008A7EAD /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
 		D6590B3D25A4CA0100598B6C /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		D6590B4125A4CA2900598B6C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -71,21 +73,20 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
-		7C13129325A3147200A2469F /* Views */ = {
+		7C13129325A3147200A2469F /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
-				D6590B3C25A4C9EA00598B6C /* Player */,
-				7CD1702C25A31B7C008A7EAD /* Series */,
-				7C13129825A3151B00A2469F /* Library */,
+				7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */,
 				D6590B4125A4CA2900598B6C /* BlurView.swift */,
 			);
-			name = Views;
+			name = CommonViews;
 			sourceTree = "<group>";
 		};
 		7C13129825A3151B00A2469F /* Library */ = {
 			isa = PBXGroup;
 			children = (
 				7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */,
+				7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */,
 				7CADC99E27D920760079F591 /* LibraryItemView.swift */,
 			);
 			name = Library;
@@ -111,13 +112,14 @@
 			isa = PBXGroup;
 			children = (
 				7CADC98F27D779E50079F591 /* Models */,
-				7CADC99527D789A40079F591 /* ViewModels */,
-				7C13129325A3147200A2469F /* Views */,
-				7CADC99427D780C90079F591 /* Services */,
+				D6590B3C25A4C9EA00598B6C /* Player */,
+				7CD1702C25A31B7C008A7EAD /* MediaList */,
+				7C13129825A3151B00A2469F /* Library */,
+				7C13129325A3147200A2469F /* CommonViews */,
 				7C13129225A3145600A2469F /* Helpers */,
 				7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */,
-				7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */,
 				7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */,
+				7C6E1EAF25A0F2E000B4B9C8 /* Assets.xcassets */,
 				7C6E1EB925A0F2E000B4B9C8 /* Info.plist */,
 				7C6E1EB625A0F2E000B4B9C8 /* SimRadio.xcdatamodeld */,
 				7C6E1EB125A0F2E000B4B9C8 /* Preview Content */,
@@ -143,36 +145,21 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		7CADC99427D780C90079F591 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				7CADC99227D780AD0079F591 /* Player.swift */,
-			);
-			name = Services;
-			sourceTree = "<group>";
-		};
-		7CADC99527D789A40079F591 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				7CADC99627D789D50079F591 /* MediaListPlayerViewModel.swift */,
-				7CADC99C27D91C790079F591 /* LibraryViewModel.swift */,
-			);
-			name = ViewModels;
-			sourceTree = "<group>";
-		};
-		7CD1702C25A31B7C008A7EAD /* Series */ = {
+		7CD1702C25A31B7C008A7EAD /* MediaList */ = {
 			isa = PBXGroup;
 			children = (
 				7CD1702D25A31BAB008A7EAD /* MediaListView.swift */,
-				7CADC9A027D930640079F591 /* MediaListItem.swift */,
+				7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */,
+				7CADC9A027D930640079F591 /* MediaListItemView.swift */,
 			);
-			name = Series;
+			name = MediaList;
 			sourceTree = "<group>";
 		};
 		D6590B3C25A4C9EA00598B6C /* Player */ = {
 			isa = PBXGroup;
 			children = (
 				D6590B3D25A4CA0100598B6C /* PlayerView.swift */,
+				7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */,
 				7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */,
 			);
 			name = Player;
@@ -269,21 +256,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CADC99327D780AD0079F591 /* Player.swift in Sources */,
 				7CADC99B27D78B6E0079F591 /* Library.swift in Sources */,
-				7CADC99727D789D50079F591 /* MediaListPlayerViewModel.swift in Sources */,
+				7CADC99727D789D50079F591 /* PlayerView-ViewModel.swift in Sources */,
 				7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */,
 				D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */,
 				7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */,
 				7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */,
 				7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */,
 				7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */,
+				7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */,
 				D6590B3E25A4CA0100598B6C /* PlayerView.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
 				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
+				7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */,
 				7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */,
-				7CADC99D27D91C790079F591 /* LibraryViewModel.swift in Sources */,
-				7CADC9A127D930640079F591 /* MediaListItem.swift in Sources */,
+				7CADC99D27D91C790079F591 /* LibraryView-ViewModel.swift in Sources */,
+				7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */,
 				7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */,
 				7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */,
 			);

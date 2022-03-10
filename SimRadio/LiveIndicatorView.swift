@@ -10,32 +10,27 @@ import SwiftUI
 struct LiveIndicatorView: View {
     var body: some View {
         HStack {
-            Capsule()
-                .fill(LinearGradient(
-                    gradient: Gradient(colors: [Settings.opaque, Settings.transparent]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                ))
-                .frame(height: Settings.barWidth)
-
-            Text("LIVE")
-                .font(.title3)
-                .foregroundColor(.primary)
-
-            Capsule()
-                .fill(LinearGradient(
-                    gradient: Gradient(colors: [Settings.transparent, Settings.opaque]),
-                    startPoint: .leading,
-                    endPoint: .trailing
-                ))
-                .frame(height: Settings.barWidth)
+            bar(colors: [Constants.opaque, Constants.transparent])
+            Text(Constants.text).font(.title3)
+            bar(colors: [Constants.transparent, Constants.opaque])
         }
     }
+    
+    func bar(colors: [Color]) -> some View {
+        Capsule()
+            .fill(
+                LinearGradient(
+                    gradient: Gradient(colors: colors),
+                    startPoint: .leading, endPoint: .trailing
+                )
+            ).frame(height: Constants.barWidth)
+    }
 
-    enum Settings {
-        static let opaque: Color = Color.primary.opacity(0.7)
-        static let transparent: Color = Color.primary.opacity(0.1)
+    enum Constants {
+        static let opaque = Color.primary.opacity(0.7)
+        static let transparent = Color.primary.opacity(0.1)
         static let barWidth: CGFloat = 4
+        static let text = "LIVE"
     }
 }
 

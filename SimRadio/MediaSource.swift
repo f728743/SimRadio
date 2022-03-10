@@ -8,7 +8,7 @@
 import UIKit
 
 struct MediaSource: Identifiable {
-    let id: ObjectIdentifier
+    let id: UUID
     let title: String
     let description: String
     let coverArt: UIImage

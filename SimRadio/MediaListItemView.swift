@@ -1,5 +1,5 @@
 //
-//  MediaListItem.swift
+//  MediaListItemView.swift
 //  SimRadio
 //
 //  Created by Alexey Vorobyov on 09.03.2022.
@@ -7,13 +7,15 @@
 
 import SwiftUI
 
-struct MediaListItem: View {
-    let station: StationInfo
+struct MediaListItemView: View {
+    let title: String
+    let description: String
+    let coverArt: Image
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             HStack(alignment: .top, spacing: Constants.textInset) {
-                Image(station.coverArt)
+                coverArt
                     .resizable()
                     .frame(width: Constants.coverArtSize, height: Constants.coverArtSize)
                     .cornerRadius(Constants.cornerRadius)
@@ -21,8 +23,8 @@ struct MediaListItem: View {
                         .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
 
                 VStack(alignment: .leading, spacing: Constants.textSpacing) {
-                    Text(station.title)
-                    Text(station.dj ?? "")
+                    Text(title)
+                    Text(description)
                         .font(.footnote)
                         .foregroundColor(Color(UIColor.secondaryLabel))
 
@@ -45,15 +47,12 @@ struct MediaListItem: View {
     }
 }
 
-struct MediaListItem_Previews: PreviewProvider {
+struct MediaListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        MediaListItem(station:
-            StationInfo(
-                title: "Los Santos Rock Radio",
-                genre: "Classic rock, soft rock, pop rock",
-                coverArt: "radio_01_class_rock",
-                dj: "Kenny Loggins"
-            )
+        MediaListItemView(
+            title: "Los Santos Rock Radio",
+            description: "Classic rock, soft rock, pop rock",
+            coverArt: Image(uiImage: UIImage(named: "radio_01_class_rock")!)
         )
     }
 }

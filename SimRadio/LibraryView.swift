@@ -9,10 +9,10 @@ import SwiftUI
 
 struct LibraryView: View {
     @State private var playerShape = PlayerView.Shape.minimized
-    @ObservedObject private var viewModel: LibraryViewModel
+    @StateObject private var viewModel: ViewModel
 
-    init(viewModel: LibraryViewModel) {
-        self.viewModel = viewModel
+    init(viewModel: ViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 
     private var columns = [
@@ -26,7 +26,11 @@ struct LibraryView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: Constants.padding) {
                         ForEach(viewModel.mediaLists, id: \.id) { mediaLists in
-                            NavigationLink(destination: MediaListView()) {
+                            NavigationLink(
+                                destination: MediaListView(
+                                    viewModel: MediaListView.ViewModel(mediaList: mediaLists)
+                                )
+                            ) {
                                 LibraryItemView(
                                     coverArt: mediaLists.coverArt,
                                     title: mediaLists.title,
@@ -41,7 +45,7 @@ struct LibraryView: View {
             }
             PlayerView(
                 shape: $playerShape,
-                viewModel: PlayerViewModel(library: Library.makeMock())
+                viewModel: PlayerView.ViewModel(library: Library.makeMock())
             )
         }.ignoresSafeArea()
     }
@@ -54,6 +58,6 @@ struct LibraryView: View {
 
 struct LibraryView_Previews: PreviewProvider {
     static var previews: some View {
-        LibraryView(viewModel: LibraryViewModel(library: Library.makeMock()))
+        LibraryView(viewModel: LibraryView.ViewModel(library: Library.makeMock()))
     }
 }
