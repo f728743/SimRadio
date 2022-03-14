@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LibraryView: View {
-    @State private var playerShape = PlayerShape.minimized
+    @State private var playerShape = PlayerView.Shape.minimized
     @StateObject private var viewModel: ViewModel
 
     init(viewModel: ViewModel) {
@@ -43,9 +43,8 @@ struct LibraryView: View {
                     .padding(Constants.padding)
                 }.navigationTitle("Library")
             }
-            PlayerView1(
-                shape: $playerShape
-//                viewModel: PlayerView.ViewModel(library: Library.makeMock())
+            PlayerView(
+                viewModel: PlayerView.ViewModel(), shape: $playerShape
             )
         }.ignoresSafeArea()
     }

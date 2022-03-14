@@ -16,7 +16,7 @@
 		7C6E1EB325A0F2E000B4B9C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB225A0F2E000B4B9C8 /* Preview Assets.xcassets */; };
 		7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */; };
 		7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB625A0F2E000B4B9C8 /* SimRadio.xcdatamodeld */; };
-		7C89CCE727DE2CD500956B80 /* PlayerView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89CCE627DE2CD500956B80 /* PlayerView1.swift */; };
+		7C89CCE727DE2CD500956B80 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89CCE627DE2CD500956B80 /* PlayerView.swift */; };
 		7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */; };
 		7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99027D77A4F0079F591 /* MediaList.swift */; };
 		7CADC99727D789D50079F591 /* PlayerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */; };
@@ -26,7 +26,7 @@
 		7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99E27D920760079F591 /* LibraryItemView.swift */; };
 		7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC9A027D930640079F591 /* MediaListItemView.swift */; };
 		7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* MediaListView.swift */; };
-		D6590B3E25A4CA0100598B6C /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B3D25A4CA0100598B6C /* PlayerView.swift */; };
+		D6590B3E25A4CA0100598B6C /* PlayerView_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B3D25A4CA0100598B6C /* PlayerView_old.swift */; };
 		D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B4125A4CA2900598B6C /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 		7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7C6E1EB725A0F2E000B4B9C8 /* SimRadio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimRadio.xcdatamodel; sourceTree = "<group>"; };
 		7C6E1EB925A0F2E000B4B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C89CCE627DE2CD500956B80 /* PlayerView1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView1.swift; sourceTree = "<group>"; };
+		7C89CCE627DE2CD500956B80 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveIndicatorView.swift; sourceTree = "<group>"; };
 		7CADC99027D77A4F0079F591 /* MediaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaList.swift; sourceTree = "<group>"; };
 		7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -52,7 +52,7 @@
 		7CADC99E27D920760079F591 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
 		7CADC9A027D930640079F591 /* MediaListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListItemView.swift; sourceTree = "<group>"; };
 		7CD1702D25A31BAB008A7EAD /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
-		D6590B3D25A4CA0100598B6C /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		D6590B3D25A4CA0100598B6C /* PlayerView_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView_old.swift; sourceTree = "<group>"; };
 		D6590B4125A4CA2900598B6C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,8 +170,8 @@
 			children = (
 				7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */,
 				7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */,
-				D6590B3D25A4CA0100598B6C /* PlayerView.swift */,
-				7C89CCE627DE2CD500956B80 /* PlayerView1.swift */,
+				7C89CCE627DE2CD500956B80 /* PlayerView.swift */,
+				D6590B3D25A4CA0100598B6C /* PlayerView_old.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -276,13 +276,13 @@
 				7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */,
 				7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */,
 				7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */,
-				D6590B3E25A4CA0100598B6C /* PlayerView.swift in Sources */,
+				D6590B3E25A4CA0100598B6C /* PlayerView_old.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
 				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
 				7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */,
 				7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */,
 				7CADC99D27D91C790079F591 /* LibraryView-ViewModel.swift in Sources */,
-				7C89CCE727DE2CD500956B80 /* PlayerView1.swift in Sources */,
+				7C89CCE727DE2CD500956B80 /* PlayerView.swift in Sources */,
 				7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */,
 				7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */,
 				7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */,
