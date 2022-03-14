@@ -15,7 +15,7 @@ struct LiveIndicatorView: View {
             bar(colors: [Constants.transparent, Constants.opaque])
         }
     }
-    
+
     func bar(colors: [Color]) -> some View {
         Capsule()
             .fill(

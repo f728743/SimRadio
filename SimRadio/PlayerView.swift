@@ -16,10 +16,10 @@ struct PlayerView: View {
     @State var volume: CGFloat = 0
     @State var offset: CGFloat = 0
     var safeArea = UIApplication.shared.windows.first?.safeAreaInsets
-    
+
     @StateObject var viewModel: ViewModel
     @Binding var shape: Shape
-    
+
     var body: some View {
         ZStack(alignment: .top) {
             BlurView().onTapGesture { maximize() }
@@ -27,11 +27,11 @@ struct PlayerView: View {
                 .frame(maxHeight: shape == .maximized ? .infinity : Constants.minimizedHeight)
 
             miniPlayer
-            
+
             VStack(spacing: 0) {
                 if isMinimized { Spacer() }
                 grip
-                Color(.red).opacity(0.05).frame(maxHeight: isMinimized ? 0 : 50)                
+                Color(.red).opacity(0.05).frame(maxHeight: isMinimized ? 0 : 50)
                 coverArt
                 Spacer()
                 VStack {
@@ -54,7 +54,7 @@ struct PlayerView: View {
         .gesture(DragGesture().onEnded(handleDragEnd(value:)).onChanged(handleDragChange(value:)))
         .ignoresSafeArea()
     }
-    
+
     var trackInfo: some View {
         VStack {
             Text(viewModel.mediaSource.title)
@@ -63,22 +63,25 @@ struct PlayerView: View {
 //        .padding(.top, 20)
     }
 
-    var playStopButtonImage: Image {
-        if case .playing = viewModel.state { return Image(systemName: "stop.fill") }
-        return Image(systemName: "play.fill")
+    var playToggleButtonImage: Image {
+        let stopPlayingImageName = viewModel.mediaSource.isLive ? "stop.fill" : "pause.fill"
+        return Image(systemName: viewModel.isPlaying ? stopPlayingImageName : "play.fill")
     }
-    
+
     var playerControls: some View {
         HStack(spacing: 64) {
             Button(action: backward) { Image(systemName: "backward.fill") }
-            Button(action: togglePlay) { playStopButtonImage.font(.system(size: 50)) }
+                .disabled(!viewModel.isSwitchSourceEnabled)
+            Button(action: togglePlay) { playToggleButtonImage.font(.system(size: 50)) }
+                .disabled(!viewModel.isPlayingEnabled)
             Button(action: forward) { Image(systemName: "forward.fill") }
+                .disabled(!viewModel.isSwitchSourceEnabled)
         }
         .font(.largeTitle)
-        .foregroundColor(.primary)
+        .accentColor(.primary)
         .padding()
     }
-    
+
     var volumeControl: some View {
         HStack(spacing: 15) {
             Image(systemName: "speaker.fill")
@@ -87,7 +90,7 @@ struct PlayerView: View {
         }
         .padding()
     }
-    
+
     var airplayButton: some View {
         Button(action: airplay) {
             Image(systemName: "airplayaudio")
@@ -97,7 +100,7 @@ struct PlayerView: View {
         .padding()
 //        .padding(.bottom, safeArea?.bottom == 0 ? 15 : safeArea?.bottom)
     }
-    
+
     var miniPlayer: some View {
         ZStack {
             //                Color(.yellow).opacity(0.3).onTapGesture {
@@ -107,36 +110,37 @@ struct PlayerView: View {
                 Text(viewModel.mediaSource.title).padding(.leading, Constants.maximizedTitlePadding)
                 Spacer(minLength: 0)
                 HStack(spacing: 20) {
-                    Button(action: togglePlay) { playStopButtonImage }
+                    Button(action: togglePlay) { playToggleButtonImage }
+                        .disabled(!viewModel.isPlayingEnabled)
                     Button(action: forward) { Image(systemName: "forward.fill") }
+                        .disabled(!viewModel.isSwitchSourceEnabled)
                 }
                 .font(.title2)
-                .foregroundColor(.primary)
+                .accentColor(.primary)
             }
             .padding(.horizontal, Constants.horizontalPadding)
             .opacity(shape == .minimized ? 1 : 0)
         }.frame(height: Constants.minimizedHeight)
     }
-    
+
     var coverArt: some View {
-            HStack {
-                if shape == .maximized { Spacer(minLength: 0) }
+        HStack {
+            if shape == .maximized { Spacer(minLength: 0) }
 
-                ZStack {
-                    RoundedRectangle(cornerRadius: coverArtCornerRadius)
-                        .fill(Color(UIColor.systemBackground))
-                        .frame(width: coverArtSize, height: coverArtSize)
-                        .shadow(color: Color(.systemGray3), radius: 20.0)
-                    Image(uiImage: viewModel.mediaSource.coverArt)
-                        .resizable()
-                        .frame(width: coverArtSize, height: coverArtSize)
-                        .cornerRadius(coverArtCornerRadius)
-                        .overlay(RoundedRectangle(cornerRadius: coverArtCornerRadius)
-                            .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
-                }
-                Spacer(minLength: 0)
+            ZStack {
+                RoundedRectangle(cornerRadius: coverArtCornerRadius)
+                    .fill(Color(UIColor.systemBackground))
+                    .frame(width: coverArtSize, height: coverArtSize)
+                    .shadow(color: Color(.systemGray3), radius: 20.0)
+                Image(uiImage: viewModel.mediaSource.coverArt)
+                    .resizable()
+                    .frame(width: coverArtSize, height: coverArtSize)
+                    .cornerRadius(coverArtCornerRadius)
+                    .overlay(RoundedRectangle(cornerRadius: coverArtCornerRadius)
+                        .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
             }
-
+            Spacer(minLength: 0)
+        }
     }
 }
 
@@ -173,7 +177,7 @@ private extension PlayerView {
     }
 
     var coverArtCornerRadius: CGFloat { shape == .maximized ? 9 : 3 }
-    
+
     var gripHeight: CGFloat { shape == .maximized ? 5 : 0 }
 
     func togglePlay() {
@@ -213,7 +217,7 @@ private extension PlayerView {
             .padding(.top, shape == .maximized ? safeArea?.top : 0)
             .padding(.vertical, shape == .maximized ? 30 : 0)
     }
-    
+
     var grip: some View {
         Capsule()
             .fill(Color.gray)

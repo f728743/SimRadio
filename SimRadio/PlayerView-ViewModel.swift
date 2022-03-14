@@ -8,31 +8,39 @@
 import UIKit
 
 extension PlayerView {
-        
     final class ViewModel: ObservableObject {
-        
         enum PlayerState {
             case idle
             case playing(source: MediaSource)
             case paused(source: MediaSource)
         }
-        
-        @Published var state: PlayerState
+
+        @Published var isPlayingEnabled = false
+        @Published var isSwitchSourceEnabled = false
+        @Published var isPlaying = false
         @Published var mediaSource: MediaSource
-        
-        private let mediaList: [MediaSource]
+
+        private var mediaList: [MediaSource]
         private var currentMediaIndex: Int
-        
+        private var state: PlayerState {
+            didSet {
+                if case .playing = state {
+                    isPlaying = true
+                } else {
+                    isPlaying = false
+                }
+            }
+        }
+
         init() {
             currentMediaIndex = 0
             mediaList = Library.makeMock().mediaLists[0].list
-            let src = mediaList[currentMediaIndex]
-            mediaSource = src
-            state = .paused(source: src)
+            mediaSource = mediaList[currentMediaIndex]
+            state = .idle
         }
-        
+
         // MARK: Intents
-        
+
         func togglePlay() {
             switch state {
             case .idle:
@@ -45,7 +53,7 @@ extension PlayerView {
                 state = .playing(source: source)
             }
         }
-        
+
         func backward() {
             guard !mediaList.isEmpty else { return }
             currentMediaIndex -= 1
@@ -67,7 +75,6 @@ extension PlayerView {
 }
 
 private extension PlayerView.ViewModel {
-    
     func switchToMedia(withIndex index: Int) {
         switch state {
         case .idle:
@@ -83,13 +90,13 @@ private extension PlayerView.ViewModel {
             state = .paused(source: source)
         }
     }
-    
+
     func playFirst() {
         guard let source = mediaList.first else { return }
         play(source: source)
         state = .playing(source: source)
     }
-        
+
     func play(source: MediaSource) {
         print("Now playing \(source.title)")
     }
@@ -97,5 +104,4 @@ private extension PlayerView.ViewModel {
     func stop() {
         print("Playing stopped")
     }
-
 }

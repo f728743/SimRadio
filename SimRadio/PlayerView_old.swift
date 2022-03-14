@@ -119,7 +119,6 @@ struct PlayerViewOld: View {
             Button(action: forward) {
                 Image(systemName: "forward.fill")
             }
-            
         }
         .font(.largeTitle)
         .foregroundColor(.primary)
