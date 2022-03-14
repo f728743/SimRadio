@@ -8,14 +8,14 @@
 import UIKit
 
 extension PlayerView {
-    
-    enum PlayerState {
-        case idle
-        case playing(source: MediaSource)
-        case paused(source: MediaSource)
-    }
-    
+        
     final class ViewModel: ObservableObject {
+        
+        enum PlayerState {
+            case idle
+            case playing(source: MediaSource)
+            case paused(source: MediaSource)
+        }
         
         @Published var state: PlayerState
         @Published var mediaSource: MediaSource
@@ -33,7 +33,7 @@ extension PlayerView {
         
         // MARK: Intents
         
-        func togglePlayStop() {
+        func togglePlay() {
             switch state {
             case .idle:
                 playFirst()

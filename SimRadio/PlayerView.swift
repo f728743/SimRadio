@@ -63,10 +63,15 @@ struct PlayerView: View {
 //        .padding(.top, 20)
     }
 
+    var playStopButtonImage: Image {
+        if case .playing = viewModel.state { return Image(systemName: "stop.fill") }
+        return Image(systemName: "play.fill")
+    }
+    
     var playerControls: some View {
         HStack(spacing: 64) {
             Button(action: backward) { Image(systemName: "backward.fill") }
-            Button(action: play) { Image(systemName: "play.fill").font(.system(size: 50)) }
+            Button(action: togglePlay) { playStopButtonImage.font(.system(size: 50)) }
             Button(action: forward) { Image(systemName: "forward.fill") }
         }
         .font(.largeTitle)
@@ -102,7 +107,7 @@ struct PlayerView: View {
                 Text(viewModel.mediaSource.title).padding(.leading, Constants.maximizedTitlePadding)
                 Spacer(minLength: 0)
                 HStack(spacing: 20) {
-                    Button(action: play) { Image(systemName: "play.fill") }
+                    Button(action: togglePlay) { playStopButtonImage }
                     Button(action: forward) { Image(systemName: "forward.fill") }
                 }
                 .font(.title2)
@@ -171,8 +176,8 @@ private extension PlayerView {
     
     var gripHeight: CGFloat { shape == .maximized ? 5 : 0 }
 
-    func play() {
-        viewModel.togglePlayStop()
+    func togglePlay() {
+        viewModel.togglePlay()
     }
 
     func backward() {

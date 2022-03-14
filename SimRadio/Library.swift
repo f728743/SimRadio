@@ -58,7 +58,7 @@ extension Library {
                     coverArt: coverArt,
                     list: mediaLists[$0].compactMap {
                         guard let coverArt = UIImage(named: $0.2) else { return nil }
-                        return MediaSource(id: UUID(), title: $0.0, description: $0.1, coverArt: coverArt)
+                        return MediaSource(id: UUID(), title: $0.0, description: $0.1, coverArt: coverArt, live: true)
                     }
                 )
             }
