@@ -43,9 +43,7 @@ struct LibraryView: View {
                     .padding(Constants.padding)
                 }.navigationTitle("Library")
             }
-            PlayerView(
-                viewModel: PlayerView.ViewModel(), shape: $playerShape
-            )
+            PlayerView(shape: $playerShape)
         }.ignoresSafeArea()
     }
 

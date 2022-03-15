@@ -1,5 +1,5 @@
 //
-//  PlayerView.swift
+//  PlayerViewOld.swift
 //  SimRadio
 //
 //  Created by Alexey Vorobyov on 05.01.2021.
@@ -215,7 +215,7 @@ struct PlayerViewOld: View {
     }
 }
 
-struct PlayerView_Previews: PreviewProvider {
+struct PlayerViewOld_Previews: PreviewProvider {
     @State static var playerShape = PlayerViewOld.Shape.maximized
     static var previews: some View {
         PlayerViewOld(shape: $playerShape)

@@ -7,23 +7,40 @@
 
 import SwiftUI
 
+struct ControlsButtoStyle: ButtonStyle {
+    let size: CGFloat
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(width: size, height: size)
+            .background(
+                configuration.isPressed ? Color.gray : Color.red
+            )
+            .clipShape(Circle())
+    }
+}
+
 struct PlayerView: View {
     enum Shape {
         case maximized
         case minimized
     }
 
-    @State var volume: CGFloat = 0
-    @State var offset: CGFloat = 0
-    var safeArea = UIApplication.shared.windows.first?.safeAreaInsets
+    @Binding private var shape: Shape
+    @State private var volume: CGFloat = 0
+    @State private var offset: CGFloat = 0
+    private var safeArea = UIApplication.shared.windows.first?.safeAreaInsets
 
-    @StateObject var viewModel: ViewModel
-    @Binding var shape: Shape
+    @StateObject private var viewModel: ViewModel
+
+    init(shape: Binding<Shape>) {
+        _shape = shape
+        _viewModel = StateObject(wrappedValue: ViewModel())
+    }
 
     var body: some View {
         ZStack(alignment: .top) {
             BlurView().onTapGesture { maximize() }
-                .cornerRadius(Constants.cornerRadius(for: shape))
+                .cornerRadius(cornerRadius)
                 .frame(maxHeight: shape == .maximized ? .infinity : Constants.minimizedHeight)
 
             miniPlayer
@@ -72,6 +89,7 @@ struct PlayerView: View {
         HStack(spacing: 64) {
             Button(action: backward) { Image(systemName: "backward.fill") }
                 .disabled(!viewModel.isSwitchSourceEnabled)
+                .buttonStyle(ControlsButtoStyle(size: 70))
             Button(action: togglePlay) { playToggleButtonImage.font(.system(size: 50)) }
                 .disabled(!viewModel.isPlayingEnabled)
             Button(action: forward) { Image(systemName: "forward.fill") }
@@ -168,28 +186,34 @@ private extension PlayerView {
         }
     }
 
-    var topPadding: CGFloat {
-        shape == .maximized ? UIScreen.main.bounds.width / 6 + 26 : 0
-    }
+    var topPadding: CGFloat { shape == .maximized ? UIScreen.main.bounds.width / 6 + 26 : 0 }
 
-    var coverArtSize: CGFloat {
-        shape == .maximized ? UIScreen.main.bounds.width / 1.5 : 48
-    }
+    var cornerRadius: CGFloat { shape == .maximized ? 40 : 0 }
+
+    var coverArtSize: CGFloat { shape == .maximized ? UIScreen.main.bounds.width / 1.5 : 48 }
 
     var coverArtCornerRadius: CGFloat { shape == .maximized ? 9 : 3 }
 
     var gripHeight: CGFloat { shape == .maximized ? 5 : 0 }
 
+    var bottomInset: CGFloat { shape == .maximized ? 0 : Constants.minimizedBottomInset }
+
     func togglePlay() {
-        viewModel.togglePlay()
+        withAnimation {
+            viewModel.togglePlay()
+        }
     }
 
     func backward() {
-        viewModel.backward()
+        withAnimation {
+            viewModel.backward()
+        }
     }
 
     func forward() {
-        viewModel.forward()
+        withAnimation {
+            viewModel.forward()
+        }
     }
 
     func airplay() {
@@ -197,9 +221,6 @@ private extension PlayerView {
     }
 
     enum Constants {
-        static func cornerRadius(for shape: Shape) -> CGFloat { shape == .maximized ? 40 : 0 }
-        static func bottomInset(for shape: Shape) -> CGFloat { shape == .maximized ? 0 : minimizedBottomInset }
-
         static let minimizedHeight: CGFloat = 80
         static let minimizedBottomInset: CGFloat = 0
         static let minimizedHorizontalPadding: CGFloat = 20
@@ -223,5 +244,12 @@ private extension PlayerView {
             .fill(Color.gray)
             .frame(width: Constants.gripWidth, height: gripHeight)
             .padding(.top, shape == .maximized ? safeArea?.top : 0)
+    }
+}
+
+struct PlayerView_Previews: PreviewProvider {
+    @State static var playerShape = PlayerView.Shape.maximized
+    static var previews: some View {
+        PlayerView(shape: $playerShape)
     }
 }

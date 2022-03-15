@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */; };
+		7C25271527E080320098E55E /* ControlsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25271427E080320098E55E /* ControlsButton.swift */; };
 		7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */; };
 		7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */; };
 		7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */; };
@@ -26,12 +27,13 @@
 		7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99E27D920760079F591 /* LibraryItemView.swift */; };
 		7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC9A027D930640079F591 /* MediaListItemView.swift */; };
 		7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* MediaListView.swift */; };
-		D6590B3E25A4CA0100598B6C /* PlayerView_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B3D25A4CA0100598B6C /* PlayerView_old.swift */; };
+		D6590B3E25A4CA0100598B6C /* PlayerViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B3D25A4CA0100598B6C /* PlayerViewOld.swift */; };
 		D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B4125A4CA2900598B6C /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
+		7C25271427E080320098E55E /* ControlsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsButton.swift; sourceTree = "<group>"; };
 		7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaListView-ViewModel.swift"; sourceTree = "<group>"; };
 		7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtView.swift; sourceTree = "<group>"; };
 		7C6E1EA825A0F2DF00B4B9C8 /* SimRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,7 +54,7 @@
 		7CADC99E27D920760079F591 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
 		7CADC9A027D930640079F591 /* MediaListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListItemView.swift; sourceTree = "<group>"; };
 		7CD1702D25A31BAB008A7EAD /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
-		D6590B3D25A4CA0100598B6C /* PlayerView_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView_old.swift; sourceTree = "<group>"; };
+		D6590B3D25A4CA0100598B6C /* PlayerViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewOld.swift; sourceTree = "<group>"; };
 		D6590B4125A4CA2900598B6C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 		7C13129325A3147200A2469F /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				7C25271427E080320098E55E /* ControlsButton.swift */,
 				7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */,
 				D6590B4125A4CA2900598B6C /* BlurView.swift */,
 			);
@@ -171,7 +174,7 @@
 				7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */,
 				7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */,
 				7C89CCE627DE2CD500956B80 /* PlayerView.swift */,
-				D6590B3D25A4CA0100598B6C /* PlayerView_old.swift */,
+				D6590B3D25A4CA0100598B6C /* PlayerViewOld.swift */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -274,9 +277,10 @@
 				7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */,
 				7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */,
 				7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */,
+				7C25271527E080320098E55E /* ControlsButton.swift in Sources */,
 				7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */,
 				7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */,
-				D6590B3E25A4CA0100598B6C /* PlayerView_old.swift in Sources */,
+				D6590B3E25A4CA0100598B6C /* PlayerViewOld.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
 				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
 				7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */,

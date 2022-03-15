@@ -15,8 +15,8 @@ extension PlayerView {
             case paused(source: MediaSource)
         }
 
-        @Published var isPlayingEnabled = false
-        @Published var isSwitchSourceEnabled = false
+        @Published var isPlayingEnabled = true
+        @Published var isSwitchSourceEnabled = true
         @Published var isPlaying = false
         @Published var mediaSource: MediaSource
 
