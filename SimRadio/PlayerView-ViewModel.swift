@@ -15,19 +15,25 @@ extension PlayerView {
             case paused(source: MediaSource)
         }
 
+        enum PlayToggleButtonState {
+            case stop
+            case play
+            case pause
+        }
+
+        @Published var playToggleButtonState = PlayToggleButtonState.play
         @Published var isPlayingEnabled = true
         @Published var isSwitchSourceEnabled = true
-        @Published var isPlaying = false
         @Published var mediaSource: MediaSource
 
         private var mediaList: [MediaSource]
         private var currentMediaIndex: Int
         private var state: PlayerState {
             didSet {
-                if case .playing = state {
-                    isPlaying = true
+                if case let .playing(source) = state {
+                    playToggleButtonState = source.isLive ? .stop : .pause
                 } else {
-                    isPlaying = false
+                    playToggleButtonState = .play
                 }
             }
         }

@@ -7,18 +7,6 @@
 
 import SwiftUI
 
-struct ControlsButtoStyle: ButtonStyle {
-    let size: CGFloat
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(width: size, height: size)
-            .background(
-                configuration.isPressed ? Color.gray : Color.red
-            )
-            .clipShape(Circle())
-    }
-}
-
 struct PlayerView: View {
     enum Shape {
         case maximized
@@ -38,12 +26,11 @@ struct PlayerView: View {
     }
 
     var body: some View {
-        ZStack(alignment: .top) {
-            BlurView().onTapGesture { maximize() }
+        ZStack(alignment: .top) {            
+            BlurView()
+                .onTapGesture { maximize() }
                 .cornerRadius(cornerRadius)
                 .frame(maxHeight: shape == .maximized ? .infinity : Constants.minimizedHeight)
-
-            miniPlayer
 
             VStack(spacing: 0) {
                 if isMinimized { Spacer() }
@@ -64,6 +51,8 @@ struct PlayerView: View {
                 .background(Color(.green).opacity(0.05))
             }
             .frame(maxHeight: shape == .maximized ? .infinity : Constants.minimizedHeight)
+            
+            miniPlayer
         }
 
 //        .offset(y: -Constants.bottomInset(for: shape))
@@ -81,19 +70,39 @@ struct PlayerView: View {
     }
 
     var playToggleButtonImage: Image {
-        let stopPlayingImageName = viewModel.mediaSource.isLive ? "stop.fill" : "pause.fill"
-        return Image(systemName: viewModel.isPlaying ? stopPlayingImageName : "play.fill")
+        switch viewModel.playToggleButtonState {
+        case .play: return Image(systemName: Constants.playButtonImage)
+        case .stop: return Image(systemName: Constants.stopButtonImage)
+        case .pause: return Image(systemName: Constants.playButtonImage)
+        }
+    }
+
+    var playToggleButtonOffset: CGFloat {
+        if viewModel.playToggleButtonState == .play {
+            return shape == .maximized ?
+            Constants.Maximized.Buttons.playImageOffset :
+            Constants.Minimized.Buttons.playImageOffset
+        }
+        return 0
     }
 
     var playerControls: some View {
-        HStack(spacing: 64) {
-            Button(action: backward) { Image(systemName: "backward.fill") }
+        HStack(spacing: Constants.Maximized.Buttons.spacing) {
+            Button(action: backward) { Image(systemName: Constants.backwardButtonImage) }
                 .disabled(!viewModel.isSwitchSourceEnabled)
-                .buttonStyle(ControlsButtoStyle(size: 70))
-            Button(action: togglePlay) { playToggleButtonImage.font(.system(size: 50)) }
+                .buttonStyle(ControlsButtonStyle(size: Constants.Maximized.Buttons.switchButtonSize))
+            Button(action: togglePlay) { playToggleButtonImage }
                 .disabled(!viewModel.isPlayingEnabled)
-            Button(action: forward) { Image(systemName: "forward.fill") }
+                .buttonStyle(
+                    ControlsButtonStyle(
+                        size: Constants.Maximized.Buttons.playButtonSize,
+                        xOffset: playToggleButtonOffset,
+                        fontScale: Constants.Maximized.Buttons.playImageScale
+                    )
+                )
+            Button(action: forward) { Image(systemName: Constants.forwardButtonImage) }
                 .disabled(!viewModel.isSwitchSourceEnabled)
+                .buttonStyle(ControlsButtonStyle(size: Constants.Maximized.Buttons.switchButtonSize))
         }
         .font(.largeTitle)
         .accentColor(.primary)
@@ -127,11 +136,18 @@ struct PlayerView: View {
             HStack {
                 Text(viewModel.mediaSource.title).padding(.leading, Constants.maximizedTitlePadding)
                 Spacer(minLength: 0)
-                HStack(spacing: 20) {
+                HStack(spacing: Constants.Minimized.Buttons.spacing) {
                     Button(action: togglePlay) { playToggleButtonImage }
                         .disabled(!viewModel.isPlayingEnabled)
-                    Button(action: forward) { Image(systemName: "forward.fill") }
+                        .buttonStyle(
+                            ControlsButtonStyle(
+                                size: Constants.Minimized.Buttons.buttonSize,
+                                xOffset: playToggleButtonOffset
+                            )
+                        )
+                    Button(action: forward) { Image(systemName: Constants.forwardButtonImage) }
                         .disabled(!viewModel.isSwitchSourceEnabled)
+                        .buttonStyle(ControlsButtonStyle(size: Constants.Minimized.Buttons.buttonSize))
                 }
                 .font(.title2)
                 .accentColor(.primary)
@@ -220,7 +236,32 @@ private extension PlayerView {
         print("airplay pressed")
     }
 
+    // swiftlint:disable nesting
     enum Constants {
+        enum Minimized {
+            enum Buttons {
+                static let spacing: CGFloat = 4
+                static let buttonSize: CGFloat = 40
+                static let playImageOffset: CGFloat = -2
+            }
+        }
+        
+        enum Maximized {
+            enum Buttons {
+                static let spacing: CGFloat = 28
+                static let playImageOffset: CGFloat = -4
+                static let playButtonSize: CGFloat = 80
+                static let playImageScale: CGFloat = 0.6
+                static let switchButtonSize: CGFloat = 70
+            }
+        }
+        
+        static let backwardButtonImage = "backward.fill"
+        static let forwardButtonImage = "forward.fill"
+        static let playButtonImage = "play.fill"
+        static let stopButtonImage = "stop.fill"
+        static let pauseButtonImage = "pause.fill"
+        
         static let minimizedHeight: CGFloat = 80
         static let minimizedBottomInset: CGFloat = 0
         static let minimizedHorizontalPadding: CGFloat = 20
