@@ -13,7 +13,7 @@ struct MediaListView: View {
     var body: some View {
         ScrollView {
             VStack {
-                CoverArtView(coverArt: viewModel.mediaList.coverArt, coverArtSize: Constants.coverArtSize)
+                CoverArtView(image: viewModel.mediaList.coverArt, size: Constants.coverArtSize)
                 Text(viewModel.mediaList.title).font(.title3).fontWeight(.semibold)
                 Text(viewModel.mediaList.description).font(.title3).foregroundColor(Color(.systemRed))
                 Divider().padding(.leading, Constants.separatorInset)

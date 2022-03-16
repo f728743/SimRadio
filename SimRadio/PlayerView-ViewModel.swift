@@ -9,12 +9,6 @@ import UIKit
 
 extension PlayerView {
     final class ViewModel: ObservableObject {
-        enum PlayerState {
-            case idle
-            case playing(source: MediaSource)
-            case paused(source: MediaSource)
-        }
-
         enum PlayToggleButtonState {
             case stop
             case play
@@ -81,6 +75,12 @@ extension PlayerView {
 }
 
 private extension PlayerView.ViewModel {
+    enum PlayerState {
+        case idle
+        case playing(source: MediaSource)
+        case paused(source: MediaSource)
+    }
+
     func switchToMedia(withIndex index: Int) {
         switch state {
         case .idle:

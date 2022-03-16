@@ -26,6 +26,7 @@
 		7CADC99D27D91C790079F591 /* LibraryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */; };
 		7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99E27D920760079F591 /* LibraryItemView.swift */; };
 		7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC9A027D930640079F591 /* MediaListItemView.swift */; };
+		7CB23E0127E3046C009243EF /* SidePadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB23E0027E3046C009243EF /* SidePadding.swift */; };
 		7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* MediaListView.swift */; };
 		D6590B3E25A4CA0100598B6C /* PlayerViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B3D25A4CA0100598B6C /* PlayerViewOld.swift */; };
 		D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B4125A4CA2900598B6C /* BlurView.swift */; };
@@ -53,6 +54,7 @@
 		7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryView-ViewModel.swift"; sourceTree = "<group>"; };
 		7CADC99E27D920760079F591 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
 		7CADC9A027D930640079F591 /* MediaListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListItemView.swift; sourceTree = "<group>"; };
+		7CB23E0027E3046C009243EF /* SidePadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePadding.swift; sourceTree = "<group>"; };
 		7CD1702D25A31BAB008A7EAD /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
 		D6590B3D25A4CA0100598B6C /* PlayerViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewOld.swift; sourceTree = "<group>"; };
 		D6590B4125A4CA2900598B6C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				7C25271427E080320098E55E /* ControlsButtonStyle.swift */,
 				7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */,
 				D6590B4125A4CA2900598B6C /* BlurView.swift */,
+				7CB23E0027E3046C009243EF /* SidePadding.swift */,
 			);
 			name = CommonViews;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */,
 				7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */,
 				7C25271527E080320098E55E /* ControlsButtonStyle.swift in Sources */,
+				7CB23E0127E3046C009243EF /* SidePadding.swift in Sources */,
 				7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */,
 				7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */,
 				D6590B3E25A4CA0100598B6C /* PlayerViewOld.swift in Sources */,

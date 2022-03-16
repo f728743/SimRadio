@@ -8,32 +8,38 @@
 import SwiftUI
 
 struct CoverArtView: View {
-    let coverArt: UIImage
-    let coverArtSize: CGFloat
+    let image: UIImage
+    let size: CGFloat
+    let cornerRadius: CGFloat
+
+    init(image: UIImage, size: CGFloat, cornerRadius: CGFloat = 6) {
+        self.image = image
+        self.size = size
+        self.cornerRadius = cornerRadius
+    }
 
     var body: some View {
         ZStack {
-            RoundedRectangle(cornerRadius: Constants.cornerRadius)
+            RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(Color(UIColor.systemBackground))
-                .frame(width: coverArtSize, height: coverArtSize)
+                .frame(width: size, height: size)
                 .shadow(color: Color(.systemGray3), radius: Constants.shadowRadius)
-            Image(uiImage: coverArt)
+            Image(uiImage: image)
                 .resizable()
-                .frame(width: coverArtSize, height: coverArtSize)
-                .cornerRadius(Constants.cornerRadius)
-                .overlay(RoundedRectangle(cornerRadius: Constants.cornerRadius)
+                .frame(width: size, height: size)
+                .cornerRadius(cornerRadius)
+                .overlay(RoundedRectangle(cornerRadius: cornerRadius)
                     .stroke(Color(UIColor.systemGray3), lineWidth: .onePixel))
-        }.padding()
+        }
     }
 
     enum Constants {
-        static let cornerRadius: CGFloat = 6
         static let shadowRadius: CGFloat = 20
     }
 }
 
 struct CoverArtView_Previews: PreviewProvider {
     static var previews: some View {
-        CoverArtView(coverArt: UIImage(named: "gta_v")!, coverArtSize: 160)
+        CoverArtView(image: UIImage(named: "gta_v")!, size: 160)
     }
 }
