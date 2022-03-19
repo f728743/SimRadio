@@ -209,8 +209,8 @@ private extension PlayerView {
 
     var coverArtSize: CGFloat {
         shape == .maximized ?
-        screenSize.width - Constants.Maximized.CoverArt.horizontalPadding * 2 :
-        Constants.Minimized.CoverArt.size
+            screenSize.width - Constants.Maximized.CoverArt.horizontalPadding * 2 :
+            Constants.Minimized.CoverArt.size
     }
 
     var coverArtCornerRadius: CGFloat {
@@ -223,6 +223,24 @@ private extension PlayerView {
     var bottomInset: CGFloat { shape == .maximized ? 0 : Constants.minimizedBottomInset }
 
     var isMinimized: Bool { shape == .minimized }
+
+    // MARK: Actions
+
+    func togglePlay() {
+        withAnimation { viewModel.togglePlay() }
+    }
+
+    func backward() {
+        withAnimation { viewModel.backward() }
+    }
+
+    func forward() {
+        withAnimation { viewModel.forward() }
+    }
+
+    func airplay() {
+        print("airplay pressed")
+    }
 
     func maximize() {
         guard shape == .minimized else { return }
@@ -243,24 +261,6 @@ private extension PlayerView {
             }
             offset = 0
         }
-    }
-
-    // MARK: Actions
-
-    func togglePlay() {
-        withAnimation { viewModel.togglePlay() }
-    }
-
-    func backward() {
-        withAnimation { viewModel.backward() }
-    }
-
-    func forward() {
-        withAnimation { viewModel.forward() }
-    }
-
-    func airplay() {
-        print("airplay pressed")
     }
 
     // MARK: Constants

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */; };
 		7C25271527E080320098E55E /* ControlsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25271427E080320098E55E /* ControlsButtonStyle.swift */; };
+		7C4E4D2B27E4E4DC002C94F8 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E4D2A27E4E4DC002C94F8 /* MarqueeText.swift */; };
 		7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */; };
 		7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */; };
 		7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		7C25271427E080320098E55E /* ControlsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsButtonStyle.swift; sourceTree = "<group>"; };
+		7C4E4D2A27E4E4DC002C94F8 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
 		7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaListView-ViewModel.swift"; sourceTree = "<group>"; };
 		7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtView.swift; sourceTree = "<group>"; };
 		7C6E1EA825A0F2DF00B4B9C8 /* SimRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 				7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */,
 				D6590B4125A4CA2900598B6C /* BlurView.swift */,
 				7CB23E0027E3046C009243EF /* SidePadding.swift */,
+				7C4E4D2A27E4E4DC002C94F8 /* MarqueeText.swift */,
 			);
 			name = CommonViews;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 				7CADC99D27D91C790079F591 /* LibraryView-ViewModel.swift in Sources */,
 				7C89CCE727DE2CD500956B80 /* PlayerView.swift in Sources */,
 				7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */,
+				7C4E4D2B27E4E4DC002C94F8 /* MarqueeText.swift in Sources */,
 				7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */,
 				7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */,
 			);
