@@ -28,34 +28,40 @@ struct PlayerView: View {
             BlurView()
                 .onTapGesture { maximize() }
                 .cornerRadius(cornerRadius)
-                .frame(maxHeight: shape == .maximized ? .infinity : Constants.minimizedHeight)
+                .frame(maxHeight: isMaximized ? .infinity : Constants.Minimized.height)
 
-            VStack(spacing: 0) {
-                if isMinimized { Spacer() }
+            VStack {
                 grip
-                Color(.red).opacity(0.05).frame(maxHeight: isMinimized ? 0 : 50)
+                Spacer()
                 coverArt
                 Spacer()
                 VStack {
-                    trackInfo
-                    LiveIndicatorView().padding()
-                    playerControls
-                    volumeControl
-                    airplayButton
                     Spacer()
+                    VStack {
+                        trackInfo
+                        LiveIndicatorView()
+                    }
+                    Spacer()
+                    playerControls
+                    Spacer()
+                    VStack(spacing: 16) {
+                        volumeControl
+                        airplayButton
+                    }
                 }
-                .padding(.top, isMinimized ? 400 : 0)
-                .frame(maxHeight: isMinimized ? 0 : 400)
-                .background(Color(.green).opacity(0.05))
+                .padding(.horizontal, Constants.Maximized.horizontalPadding)
+                .padding(.top, isMinimized ? screenSize.height : 0) // pushes out maximized player
+                .frame(maxHeight: isMinimized ? 0 : .infinity)
             }
-            .frame(maxHeight: shape == .maximized ? .infinity : Constants.minimizedHeight)
+            .foregroundColor(.primary)
+            .frame(maxHeight: isMaximized ? .infinity : Constants.Minimized.height)
 
             miniPlayer
         }
-
-//        .offset(y: -Constants.bottomInset(for: shape))
         .offset(y: offset)
-        .gesture(DragGesture().onEnded(handleDragEnd(value:)).onChanged(handleDragChange(value:)))
+        .gesture(
+            DragGesture().onEnded(handleDragEnd(value:)).onChanged(handleDragChange(value:))
+        )
         .ignoresSafeArea()
     }
 }
@@ -63,42 +69,36 @@ struct PlayerView: View {
 private extension PlayerView {
     // MARK: Subview vars
 
-    var grip1: some View {
-        Capsule()
-            .fill(Color.gray)
-            .frame(width: shape == .maximized ? 60 : 0, height: shape == .maximized ? 4 : 0)
-            .opacity(shape == .maximized ? 1 : 0)
-            .padding(.top, shape == .maximized ? safeArea?.top : 0)
-            .padding(.vertical, shape == .maximized ? 30 : 0)
-    }
-
     var grip: some View {
         Capsule()
             .fill(Color.gray)
-            .frame(width: Constants.gripWidth, height: gripHeight)
-            .padding(.top, shape == .maximized ? safeArea?.top : 0)
+            .frame(width: Constants.gripWidth, height: isMaximized ? Constants.gripHeight : 0)
+            .padding(.top, isMaximized ? safeArea?.top : 0)
     }
 
     var coverArt: some View {
-        HStack {
-            if shape == .maximized { Spacer() }
+        let paddingK = Constants.Maximized.CoverArt.topPaddingK
+        let paddingB = Constants.Maximized.CoverArt.topPaddingB
+        return HStack {
+            if isMaximized { Spacer() }
             CoverArtView(
                 image: viewModel.mediaSource.coverArt,
                 size: coverArtSize - coverArtPlayStopIndent * 2,
                 cornerRadius: coverArtCornerRadius
             )
             .frame(width: coverArtSize, height: coverArtSize)
-            .padding(.left, shape == .minimized ? Constants.Minimized.horizontalPadding : 0)
+            .padding(.left, isMinimized ? Constants.Minimized.horizontalPadding : 0)
             Spacer()
         }
+        .padding(.top, isMaximized ? max(paddingK * screenSize.height - paddingB, 0) : 0)
     }
 
     var trackInfo: some View {
         VStack {
+            HStack { Spacer() }
             Text(viewModel.mediaSource.title)
             Text(viewModel.mediaSource.description)
         }
-//        .padding(.top, 20)
     }
 
     var playerControls: some View {
@@ -121,7 +121,6 @@ private extension PlayerView {
         }
         .font(.largeTitle)
         .accentColor(.primary)
-        .padding()
     }
 
     var volumeControl: some View {
@@ -130,28 +129,21 @@ private extension PlayerView {
             Slider(value: $volume)
             Image(systemName: "speaker.wave.2.fill")
         }
-        .padding()
     }
 
     var airplayButton: some View {
         Button(action: airplay) {
-            Image(systemName: "airplayaudio")
-                .font(.title2)
-                .foregroundColor(.primary)
+            Image(systemName: "airplayaudio").font(.title2)
         }
-        .padding()
-//        .padding(.bottom, safeArea?.bottom == 0 ? 15 : safeArea?.bottom)
+        .padding(.bottom, safeArea?.bottom == 0 ? Constants.airplayBottomPadding : safeArea?.bottom)
     }
 
     // MARK: Mini Player
 
     var miniPlayer: some View {
         ZStack {
-            //                Color(.yellow).opacity(0.3).onTapGesture {
-            //                    withAnimation(.spring()) { shape = .expanded }
-            //                }
             HStack {
-                Text(viewModel.mediaSource.title).padding(.leading, Constants.maximizedTitlePadding)
+                Text(viewModel.mediaSource.title).padding(.left, Constants.Minimized.titlePadding)
                 Spacer(minLength: 0)
                 HStack(spacing: Constants.Minimized.Buttons.spacing) {
                     Button(action: togglePlay) { playToggleButtonImage }
@@ -170,8 +162,9 @@ private extension PlayerView {
                 .accentColor(.primary)
             }
             .padding(.horizontal, Constants.Minimized.horizontalPadding)
-            .opacity(shape == .minimized ? 1 : 0)
-        }.frame(height: Constants.minimizedHeight)
+            .opacity(isMinimized ? 1 : 0)
+        }
+        .frame(height: Constants.Minimized.height)
     }
 
     // MARK: Computed params
@@ -189,7 +182,7 @@ private extension PlayerView {
 
     var playToggleButtonOffset: CGFloat {
         if viewModel.playToggleButtonState == .play, viewModel.mediaSource.isLive {
-            return shape == .maximized ?
+            return isMaximized ?
                 Constants.Maximized.Buttons.playImageOffset :
                 Constants.Minimized.Buttons.playImageOffset
         }
@@ -197,32 +190,27 @@ private extension PlayerView {
     }
 
     var coverArtPlayStopIndent: CGFloat {
-        shape == .maximized && viewModel.playToggleButtonState == .play ? screenSize.width / 8.4 : 0
+        isMaximized && viewModel.playToggleButtonState == .play ? screenSize.width / 8.4 : 0
     }
 
-    var topPadding: CGFloat { shape == .maximized ? screenSize.width / 6 + 26 : 0 }
-
     var cornerRadius: CGFloat {
-        shape == .maximized ?
-            Constants.Maximized.cornerRadius : Constants.Minimized.cornerRadius
+        isMaximized ? Constants.Maximized.cornerRadius : Constants.Minimized.cornerRadius
     }
 
     var coverArtSize: CGFloat {
-        shape == .maximized ?
+        isMaximized ?
             screenSize.width - Constants.Maximized.CoverArt.horizontalPadding * 2 :
             Constants.Minimized.CoverArt.size
     }
 
     var coverArtCornerRadius: CGFloat {
-        shape == .maximized ?
+        isMaximized ?
             Constants.Maximized.CoverArt.cornerRadius : Constants.Minimized.CoverArt.cornerRadius
     }
 
-    var gripHeight: CGFloat { shape == .maximized ? 5 : 0 }
-
-    var bottomInset: CGFloat { shape == .maximized ? 0 : Constants.minimizedBottomInset }
-
     var isMinimized: Bool { shape == .minimized }
+
+    var isMaximized: Bool { shape == .maximized }
 
     // MARK: Actions
 
@@ -243,12 +231,12 @@ private extension PlayerView {
     }
 
     func maximize() {
-        guard shape == .minimized else { return }
+        guard isMinimized else { return }
         withAnimation(.spring()) { shape = .maximized }
     }
 
     func handleDragChange(value: DragGesture.Value) {
-        guard shape == .maximized else { return }
+        guard isMaximized else { return }
         if value.translation.height > 0 {
             offset = value.translation.height
         }
@@ -277,10 +265,13 @@ private extension PlayerView {
             }
 
             enum CoverArt {
+                static let topPaddingK: CGFloat = 0.16
+                static let topPaddingB: CGFloat = 100
                 static let horizontalPadding: CGFloat = 24
                 static let cornerRadius: CGFloat = 9
             }
 
+            static let spacing: CGFloat = 8
             static let horizontalPadding: CGFloat = 32
             static let cornerRadius: CGFloat = 20
         }
@@ -297,15 +288,16 @@ private extension PlayerView {
                 static let cornerRadius: CGFloat = 3
             }
 
+            static let height: CGFloat = 80
             static let horizontalPadding: CGFloat = 20
+            static let titlePadding: CGFloat = 64
             static let cornerRadius: CGFloat = 0
         }
 
-        static let minimizedHeight: CGFloat = 80
-        static let minimizedBottomInset: CGFloat = 0
-        static let maximizedTitlePadding: CGFloat = 64
-
         static let gripWidth: CGFloat = 36
+        static let gripHeight: CGFloat = 5
+
+        static let airplayBottomPadding: CGFloat = 16
 
         static let backwardButtonImage = "backward.fill"
         static let forwardButtonImage = "forward.fill"

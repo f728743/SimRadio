@@ -66,36 +66,36 @@ struct MarqueeText: View {
         .font(.init(font))
         .frame(height: textSize.height)
     }
-    
+
     private var fadeMask: some View {
         HStack(spacing: 0) {
             Rectangle()
                 .frame(width: 2)
                 .opacity(0)
-            
+
             LinearGradient(
                 gradient: Gradient(colors: [Color.black.opacity(0), Color.black]),
                 startPoint: .leading, endPoint: .trailing
             )
             .frame(width: leftFade)
-            
+
             LinearGradient(
                 gradient: Gradient(colors: [Color.black, Color.black]),
                 startPoint: .leading, endPoint: .trailing
             )
-            
+
             LinearGradient(
                 gradient: Gradient(colors: [Color.black, Color.black.opacity(0)]),
                 startPoint: .leading, endPoint: .trailing
             )
             .frame(width: rightFade)
-            
+
             Rectangle()
                 .frame(width: 2)
                 .opacity(0)
         }
     }
-    
+
     private var textSize: CGSize {
         text.size(withAttributes: [NSAttributedString.Key.font: font])
     }
