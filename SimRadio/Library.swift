@@ -12,10 +12,12 @@ struct Library {
 }
 
 extension Library {
+    // swiftlint:disable function_body_length    
     static func makeMock() -> Library {
         let mediaLists = [
             [
-                ("Los Sant os Rock Radio", "Classic rock, soft rock, pop rock", "radio_01_class_rock", "Kenny Loggins"),
+                ("Los Sant os Rock Radio 123", "Classic rock, soft rock, pop rock",
+                 "radio_01_class_rock", "Kenny Loggins"),
                 ("Non-Stop Pop FM", "Pop music, electronic dance music, electro house",
                  "radio_02_pop", "Cara Delevingne"),
                 ("Radio Los Santos", "Modern contemporary hip hop, trap", "radio_03_hiphop_new", "Big Boy"),

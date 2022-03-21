@@ -41,8 +41,10 @@ struct LibraryView: View {
                         }
                     }
                     .padding(Constants.padding)
-                }.navigationTitle("Library")
+                }
+                .navigationTitle("Library")
             }
+            .navigationViewStyle(.stack)
             PlayerView(shape: $playerShape)
         }.ignoresSafeArea()
     }

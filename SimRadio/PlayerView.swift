@@ -99,6 +99,9 @@ private extension PlayerView {
             Text(viewModel.mediaSource.title)
             Text(viewModel.mediaSource.description)
         }
+        .lineLimit(1)
+        .id(viewModel.mediaSource.id)
+        .transition(.identity)
     }
 
     var playerControls: some View {
@@ -125,15 +128,15 @@ private extension PlayerView {
 
     var volumeControl: some View {
         HStack(spacing: 15) {
-            Image(systemName: "speaker.fill")
+            Image(systemName: Constants.lowVolumeImage)
             Slider(value: $volume)
-            Image(systemName: "speaker.wave.2.fill")
+            Image(systemName: Constants.highVolumeImage)
         }
     }
 
     var airplayButton: some View {
         Button(action: airplay) {
-            Image(systemName: "airplayaudio").font(.title2)
+            Image(systemName: Constants.airplayImage).font(.title2)
         }
         .padding(.bottom, safeArea?.bottom == 0 ? Constants.airplayBottomPadding : safeArea?.bottom)
     }
@@ -141,29 +144,31 @@ private extension PlayerView {
     // MARK: Mini Player
 
     var miniPlayer: some View {
-        ZStack {
-            HStack {
-                Text(viewModel.mediaSource.title).padding(.left, Constants.Minimized.titlePadding)
-                Spacer(minLength: 0)
-                HStack(spacing: Constants.Minimized.Buttons.spacing) {
-                    Button(action: togglePlay) { playToggleButtonImage }
-                        .disabled(!viewModel.isPlayingEnabled)
-                        .buttonStyle(
-                            ControlsButtonStyle(
-                                size: Constants.Minimized.Buttons.size,
-                                xOffset: playToggleButtonOffset
-                            )
+        HStack {
+            Text(viewModel.mediaSource.title)
+                .id(viewModel.mediaSource.id)
+                .transition(.identity)
+                .lineLimit(1)
+                .padding(.left, Constants.Minimized.titlePadding)
+            Spacer(minLength: Constants.Minimized.Buttons.spacing)
+            HStack(spacing: Constants.Minimized.Buttons.spacing) {
+                Button(action: togglePlay) { playToggleButtonImage }
+                    .disabled(!viewModel.isPlayingEnabled)
+                    .buttonStyle(
+                        ControlsButtonStyle(
+                            size: Constants.Minimized.Buttons.size,
+                            xOffset: playToggleButtonOffset
                         )
-                    Button(action: forward) { Image(systemName: Constants.forwardButtonImage) }
-                        .disabled(!viewModel.isSwitchSourceEnabled)
-                        .buttonStyle(ControlsButtonStyle(size: Constants.Minimized.Buttons.size))
-                }
-                .font(.title2)
-                .accentColor(.primary)
+                    )
+                Button(action: forward) { Image(systemName: Constants.forwardButtonImage) }
+                    .disabled(!viewModel.isSwitchSourceEnabled)
+                    .buttonStyle(ControlsButtonStyle(size: Constants.Minimized.Buttons.size))
             }
-            .padding(.horizontal, Constants.Minimized.horizontalPadding)
-            .opacity(isMinimized ? 1 : 0)
+            .font(.title2)
+            .accentColor(.primary)
         }
+        .padding(.horizontal, Constants.Minimized.horizontalPadding)
+        .opacity(isMinimized ? 1 : 0)
         .frame(height: Constants.Minimized.height)
     }
 
@@ -278,7 +283,7 @@ private extension PlayerView {
 
         enum Minimized {
             enum Buttons {
-                static let spacing: CGFloat = 4
+                static let spacing: CGFloat = 2
                 static let playImageOffset: CGFloat = -2
                 static let size: CGFloat = 50
             }
@@ -304,6 +309,9 @@ private extension PlayerView {
         static let playButtonImage = "play.fill"
         static let stopButtonImage = "stop.fill"
         static let pauseButtonImage = "pause.fill"
+        static let lowVolumeImage = "speaker.fill"
+        static let highVolumeImage = "speaker.wave.2.fill"
+        static let airplayImage = "airplayaudio"
     }
 }
 
