@@ -51,7 +51,7 @@ struct MarqueeText: View {
                     )
                     .offset(x: leftFade)
                     .mask(fadeMask)
-                    .frame(width: geo.size.width + leftFade)
+                    .frame(width: leftFade + geo.size.width + rightFade)
                     .offset(x: -leftFade)
                 } else {
                     Text(text)

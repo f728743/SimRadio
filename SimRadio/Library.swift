@@ -16,7 +16,7 @@ extension Library {
     static func makeMock() -> Library {
         let mediaLists = [
             [
-                ("Los Sant os Rock Radio 123", "Classic rock, soft rock, pop rock",
+                ("Los Sant os Rock Radio", "Classic rock, soft rock, pop rock",
                  "radio_01_class_rock", "Kenny Loggins"),
                 ("Non-Stop Pop FM", "Pop music, electronic dance music, electro house",
                  "radio_02_pop", "Cara Delevingne"),

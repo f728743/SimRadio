@@ -10,7 +10,7 @@
 		7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */; };
 		7C25271527E080320098E55E /* ControlsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C25271427E080320098E55E /* ControlsButtonStyle.swift */; };
 		7C4E4D2B27E4E4DC002C94F8 /* MarqueeText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E4D2A27E4E4DC002C94F8 /* MarqueeText.swift */; };
-		7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */; };
+		7C61BF8727DA79440086F9D7 /* MediaListView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8627DA79440086F9D7 /* MediaListView+ViewModel.swift */; };
 		7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */; };
 		7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */; };
 		7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */; };
@@ -21,14 +21,15 @@
 		7C89CCE727DE2CD500956B80 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89CCE627DE2CD500956B80 /* PlayerView.swift */; };
 		7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */; };
 		7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99027D77A4F0079F591 /* MediaList.swift */; };
-		7CADC99727D789D50079F591 /* PlayerView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */; };
+		7CADC99727D789D50079F591 /* PlayerView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99627D789D50079F591 /* PlayerView+ViewModel.swift */; };
 		7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99827D78B2D0079F591 /* MediaSource.swift */; };
 		7CADC99B27D78B6E0079F591 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99A27D78B6E0079F591 /* Library.swift */; };
-		7CADC99D27D91C790079F591 /* LibraryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */; };
+		7CADC99D27D91C790079F591 /* LibraryView+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99C27D91C790079F591 /* LibraryView+ViewModel.swift */; };
 		7CADC99F27D920760079F591 /* LibraryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99E27D920760079F591 /* LibraryItemView.swift */; };
 		7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC9A027D930640079F591 /* MediaListItemView.swift */; };
 		7CB23E0127E3046C009243EF /* SidePadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB23E0027E3046C009243EF /* SidePadding.swift */; };
 		7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* MediaListView.swift */; };
+		7CD7DBB827E9D8B800FEC331 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7DBB727E9D8B800FEC331 /* UIFont+Extensions.swift */; };
 		D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B4125A4CA2900598B6C /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +37,7 @@
 		7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Extensions.swift"; sourceTree = "<group>"; };
 		7C25271427E080320098E55E /* ControlsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlsButtonStyle.swift; sourceTree = "<group>"; };
 		7C4E4D2A27E4E4DC002C94F8 /* MarqueeText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeText.swift; sourceTree = "<group>"; };
-		7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaListView-ViewModel.swift"; sourceTree = "<group>"; };
+		7C61BF8627DA79440086F9D7 /* MediaListView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MediaListView+ViewModel.swift"; sourceTree = "<group>"; };
 		7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverArtView.swift; sourceTree = "<group>"; };
 		7C6E1EA825A0F2DF00B4B9C8 /* SimRadio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimRadio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C6E1EAB25A0F2DF00B4B9C8 /* SimRadioApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimRadioApp.swift; sourceTree = "<group>"; };
@@ -49,14 +50,15 @@
 		7C89CCE627DE2CD500956B80 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveIndicatorView.swift; sourceTree = "<group>"; };
 		7CADC99027D77A4F0079F591 /* MediaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaList.swift; sourceTree = "<group>"; };
-		7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerView-ViewModel.swift"; sourceTree = "<group>"; };
+		7CADC99627D789D50079F591 /* PlayerView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerView+ViewModel.swift"; sourceTree = "<group>"; };
 		7CADC99827D78B2D0079F591 /* MediaSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaSource.swift; sourceTree = "<group>"; };
 		7CADC99A27D78B6E0079F591 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
-		7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryView-ViewModel.swift"; sourceTree = "<group>"; };
+		7CADC99C27D91C790079F591 /* LibraryView+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryView+ViewModel.swift"; sourceTree = "<group>"; };
 		7CADC99E27D920760079F591 /* LibraryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItemView.swift; sourceTree = "<group>"; };
 		7CADC9A027D930640079F591 /* MediaListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListItemView.swift; sourceTree = "<group>"; };
 		7CB23E0027E3046C009243EF /* SidePadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePadding.swift; sourceTree = "<group>"; };
 		7CD1702D25A31BAB008A7EAD /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
+		7CD7DBB727E9D8B800FEC331 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		D6590B4125A4CA2900598B6C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */,
+				7CD7DBB727E9D8B800FEC331 /* UIFont+Extensions.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -95,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				7CADC99E27D920760079F591 /* LibraryItemView.swift */,
-				7CADC99C27D91C790079F591 /* LibraryView-ViewModel.swift */,
+				7CADC99C27D91C790079F591 /* LibraryView+ViewModel.swift */,
 				7C6E1EAD25A0F2DF00B4B9C8 /* LibraryView.swift */,
 			);
 			name = Library;
@@ -166,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				7CADC9A027D930640079F591 /* MediaListItemView.swift */,
-				7C61BF8627DA79440086F9D7 /* MediaListView-ViewModel.swift */,
+				7C61BF8627DA79440086F9D7 /* MediaListView+ViewModel.swift */,
 				7CD1702D25A31BAB008A7EAD /* MediaListView.swift */,
 			);
 			name = MediaList;
@@ -176,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */,
-				7CADC99627D789D50079F591 /* PlayerView-ViewModel.swift */,
+				7CADC99627D789D50079F591 /* PlayerView+ViewModel.swift */,
 				7C89CCE627DE2CD500956B80 /* PlayerView.swift */,
 			);
 			name = Player;
@@ -274,7 +277,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CADC99B27D78B6E0079F591 /* Library.swift in Sources */,
-				7CADC99727D789D50079F591 /* PlayerView-ViewModel.swift in Sources */,
+				7CADC99727D789D50079F591 /* PlayerView+ViewModel.swift in Sources */,
 				7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */,
 				D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */,
 				7C13129525A3149E00A2469F /* CGFloat+Extensions.swift in Sources */,
@@ -283,12 +286,13 @@
 				7C25271527E080320098E55E /* ControlsButtonStyle.swift in Sources */,
 				7CB23E0127E3046C009243EF /* SidePadding.swift in Sources */,
 				7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */,
-				7C61BF8727DA79440086F9D7 /* MediaListView-ViewModel.swift in Sources */,
+				7C61BF8727DA79440086F9D7 /* MediaListView+ViewModel.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
+				7CD7DBB827E9D8B800FEC331 /* UIFont+Extensions.swift in Sources */,
 				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
 				7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */,
 				7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */,
-				7CADC99D27D91C790079F591 /* LibraryView-ViewModel.swift in Sources */,
+				7CADC99D27D91C790079F591 /* LibraryView+ViewModel.swift in Sources */,
 				7C89CCE727DE2CD500956B80 /* PlayerView.swift in Sources */,
 				7CADC9A127D930640079F591 /* MediaListItemView.swift in Sources */,
 				7C4E4D2B27E4E4DC002C94F8 /* MarqueeText.swift in Sources */,

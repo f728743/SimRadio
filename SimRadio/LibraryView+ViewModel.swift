@@ -1,5 +1,5 @@
 //
-//  LibraryView-ViewModel.swift
+//  LibraryView+ViewModel.swift
 //  SimRadio
 //
 //  Created by Alexey Vorobyov on 09.03.2022.

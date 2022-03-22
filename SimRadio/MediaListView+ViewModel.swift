@@ -1,5 +1,5 @@
 //
-//  MediaListView-ViewModel.swift
+//  MediaListView+ViewModel.swift
 //  SimRadio
 //
 //  Created by Alexey Vorobyov on 10.03.2022.

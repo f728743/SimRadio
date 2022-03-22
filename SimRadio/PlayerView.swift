@@ -23,6 +23,7 @@ struct PlayerView: View {
         _viewModel = StateObject(wrappedValue: ViewModel())
     }
 
+    // MARK: body
     var body: some View {
         ZStack(alignment: .top) {
             BlurView()
@@ -67,8 +68,7 @@ struct PlayerView: View {
 }
 
 private extension PlayerView {
-    // MARK: Subview vars
-
+    // MARK: Grip
     var grip: some View {
         Capsule()
             .fill(Color.gray)
@@ -76,6 +76,7 @@ private extension PlayerView {
             .padding(.top, isMaximized ? safeArea?.top : 0)
     }
 
+    // MARK: Cover Art
     var coverArt: some View {
         let paddingK = Constants.Maximized.CoverArt.topPaddingK
         let paddingB = Constants.Maximized.CoverArt.topPaddingB
@@ -92,18 +93,33 @@ private extension PlayerView {
         }
         .padding(.top, isMaximized ? max(paddingK * screenSize.height - paddingB, 0) : 0)
     }
-
+    
+    // MARK: Maximized player track info
     var trackInfo: some View {
-        VStack {
+        VStack(spacing: 16) {
             HStack { Spacer() }
-            Text(viewModel.mediaSource.title)
-            Text(viewModel.mediaSource.description)
+            let fade = Constants.Maximized.titleFadeLength
+            MarqueeText(
+                text: viewModel.mediaSource.title,
+                font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3).bold(),
+                leftFade: fade,
+                rightFade: fade,
+                startDelay: Constants.marqueeTextStartDelay
+            )
+            MarqueeText(
+                text: viewModel.mediaSource.description,
+                font: UIFont.preferredFont(forTextStyle: UIFont.TextStyle.title3),
+                leftFade: fade,
+                rightFade: fade,
+                startDelay: Constants.marqueeTextStartDelay
+            )
         }
         .lineLimit(1)
         .id(viewModel.mediaSource.id)
         .transition(.identity)
     }
 
+    // MARK: Maximized player controls
     var playerControls: some View {
         HStack(spacing: Constants.Maximized.Buttons.spacing) {
             Button(action: backward) { Image(systemName: Constants.backwardButtonImage) }
@@ -126,6 +142,7 @@ private extension PlayerView {
         .accentColor(.primary)
     }
 
+    // MARK: Volume control
     var volumeControl: some View {
         HStack(spacing: 15) {
             Image(systemName: Constants.lowVolumeImage)
@@ -278,6 +295,7 @@ private extension PlayerView {
 
             static let spacing: CGFloat = 8
             static let horizontalPadding: CGFloat = 32
+            static let titleFadeLength: CGFloat = 24
             static let cornerRadius: CGFloat = 20
         }
 
@@ -304,13 +322,15 @@ private extension PlayerView {
 
         static let airplayBottomPadding: CGFloat = 16
 
+        static let marqueeTextStartDelay: Double = 3
+
         static let backwardButtonImage = "backward.fill"
         static let forwardButtonImage = "forward.fill"
         static let playButtonImage = "play.fill"
         static let stopButtonImage = "stop.fill"
         static let pauseButtonImage = "pause.fill"
         static let lowVolumeImage = "speaker.fill"
-        static let highVolumeImage = "speaker.wave.2.fill"
+        static let highVolumeImage = "speaker.wave.3.fill"
         static let airplayImage = "airplayaudio"
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PlayerView-ViewModel.swift
+//  PlayerView+ViewModel.swift
 //  SimRadio
 //
 //  Created by Alexey Vorobyov on 08.03.2022.
