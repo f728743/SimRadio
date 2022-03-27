@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,8 @@
 		7C6E1EB325A0F2E000B4B9C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB225A0F2E000B4B9C8 /* Preview Assets.xcassets */; };
 		7C6E1EB525A0F2E000B4B9C8 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */; };
 		7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C6E1EB625A0F2E000B4B9C8 /* SimRadio.xcdatamodeld */; };
+		7C7761B827F02A080030FE7D /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7761B727F02A080030FE7D /* ColorKit */; };
+		7C7761BA27F02D110030FE7D /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7761B927F02D110030FE7D /* UIImage+Extensions.swift */; };
 		7C89CCE727DE2CD500956B80 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C89CCE627DE2CD500956B80 /* PlayerView.swift */; };
 		7CADC98E27D748DE0079F591 /* LiveIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */; };
 		7CADC99127D77A4F0079F591 /* MediaList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CADC99027D77A4F0079F591 /* MediaList.swift */; };
@@ -30,6 +32,7 @@
 		7CB23E0127E3046C009243EF /* SidePadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB23E0027E3046C009243EF /* SidePadding.swift */; };
 		7CD1702E25A31BAB008A7EAD /* MediaListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD1702D25A31BAB008A7EAD /* MediaListView.swift */; };
 		7CD7DBB827E9D8B800FEC331 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD7DBB727E9D8B800FEC331 /* UIFont+Extensions.swift */; };
+		7CF5974827EC74AC00CD4E32 /* GradientEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF5974727EC74AB00CD4E32 /* GradientEffectView.swift */; };
 		D6590B4225A4CA2900598B6C /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6590B4125A4CA2900598B6C /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,7 @@
 		7C6E1EB425A0F2E000B4B9C8 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		7C6E1EB725A0F2E000B4B9C8 /* SimRadio.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimRadio.xcdatamodel; sourceTree = "<group>"; };
 		7C6E1EB925A0F2E000B4B9C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C7761B927F02D110030FE7D /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		7C89CCE627DE2CD500956B80 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		7CADC98D27D748DE0079F591 /* LiveIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveIndicatorView.swift; sourceTree = "<group>"; };
 		7CADC99027D77A4F0079F591 /* MediaList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaList.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		7CB23E0027E3046C009243EF /* SidePadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidePadding.swift; sourceTree = "<group>"; };
 		7CD1702D25A31BAB008A7EAD /* MediaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaListView.swift; sourceTree = "<group>"; };
 		7CD7DBB727E9D8B800FEC331 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
+		7CF5974727EC74AB00CD4E32 /* GradientEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientEffectView.swift; sourceTree = "<group>"; };
 		D6590B4125A4CA2900598B6C /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7761B827F02A080030FE7D /* ColorKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				7C13129425A3149E00A2469F /* CGFloat+Extensions.swift */,
+				7C7761B927F02D110030FE7D /* UIImage+Extensions.swift */,
 				7CD7DBB727E9D8B800FEC331 /* UIFont+Extensions.swift */,
 			);
 			name = Helpers;
@@ -85,6 +92,7 @@
 		7C13129325A3147200A2469F /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				7CF5974727EC74AB00CD4E32 /* GradientEffectView.swift */,
 				7C25271427E080320098E55E /* ControlsButtonStyle.swift */,
 				7C61BF8827DA819F0086F9D7 /* CoverArtView.swift */,
 				D6590B4125A4CA2900598B6C /* BlurView.swift */,
@@ -202,6 +210,9 @@
 			dependencies = (
 			);
 			name = SimRadio;
+			packageProductDependencies = (
+				7C7761B727F02A080030FE7D /* ColorKit */,
+			);
 			productName = SimRadio;
 			productReference = 7C6E1EA825A0F2DF00B4B9C8 /* SimRadio.app */;
 			productType = "com.apple.product-type.application";
@@ -229,6 +240,9 @@
 				Base,
 			);
 			mainGroup = 7C6E1E9F25A0F2DF00B4B9C8;
+			packageReferences = (
+				7C7761B627F02A080030FE7D /* XCRemoteSwiftPackageReference "ColorKit" */,
+			);
 			productRefGroup = 7C6E1EA925A0F2DF00B4B9C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -287,9 +301,11 @@
 				7CB23E0127E3046C009243EF /* SidePadding.swift in Sources */,
 				7CADC99927D78B2D0079F591 /* MediaSource.swift in Sources */,
 				7C61BF8727DA79440086F9D7 /* MediaListView+ViewModel.swift in Sources */,
+				7CF5974827EC74AC00CD4E32 /* GradientEffectView.swift in Sources */,
 				7C6E1EB825A0F2E000B4B9C8 /* SimRadio.xcdatamodeld in Sources */,
 				7CD7DBB827E9D8B800FEC331 /* UIFont+Extensions.swift in Sources */,
 				7C6E1EAE25A0F2DF00B4B9C8 /* LibraryView.swift in Sources */,
+				7C7761BA27F02D110030FE7D /* UIImage+Extensions.swift in Sources */,
 				7C61BF8927DA819F0086F9D7 /* CoverArtView.swift in Sources */,
 				7C6E1EAC25A0F2DF00B4B9C8 /* SimRadioApp.swift in Sources */,
 				7CADC99D27D91C790079F591 /* LibraryView+ViewModel.swift in Sources */,
@@ -430,7 +446,7 @@
 				DEVELOPMENT_TEAM = XKHPTWMD44;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SimRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -452,7 +468,7 @@
 				DEVELOPMENT_TEAM = XKHPTWMD44;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SimRadio/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,6 +502,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C7761B627F02A080030FE7D /* XCRemoteSwiftPackageReference "ColorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boris-Em/ColorKit";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C7761B727F02A080030FE7D /* ColorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C7761B627F02A080030FE7D /* XCRemoteSwiftPackageReference "ColorKit" */;
+			productName = ColorKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		7C6E1EB625A0F2E000B4B9C8 /* SimRadio.xcdatamodeld */ = {

@@ -5,6 +5,7 @@
 //  Created by Alexey Vorobyov on 08.01.2021.
 //
 
+import ColorKit
 import SwiftUI
 
 struct PlayerView: View {
@@ -17,16 +18,17 @@ struct PlayerView: View {
     @State private var volume: CGFloat = 0
     @State private var offset: CGFloat = 0
     @StateObject private var viewModel: ViewModel
-
+    @State private var gradietnModel = AnimatedGradient.Model(colors: [])
     init(shape: Binding<Shape>) {
         _shape = shape
         _viewModel = StateObject(wrappedValue: ViewModel())
     }
 
     // MARK: body
+
     var body: some View {
         ZStack(alignment: .top) {
-            BlurView()
+            background
                 .onTapGesture { maximize() }
                 .cornerRadius(cornerRadius)
                 .frame(maxHeight: isMaximized ? .infinity : Constants.Minimized.height)
@@ -60,15 +62,33 @@ struct PlayerView: View {
             miniPlayer
         }
         .offset(y: offset)
+        .ignoresSafeArea()
         .gesture(
             DragGesture().onEnded(handleDragEnd(value:)).onChanged(handleDragChange(value:))
         )
-        .ignoresSafeArea()
+        .onChange(of: viewModel.mediaSource.coverArt) { _ in
+            updateColors()
+        }
+        .onAppear {
+            updateColors()
+        }
     }
 }
 
 private extension PlayerView {
+    // MARK: Background
+
+    var background: some View {
+        ZStack {
+            GradientEffectView($gradietnModel)
+                .opacity(isMaximized ? 1 : 0)
+            BlurView()
+                .opacity(isMaximized ? 0 : 1)
+        }
+    }
+
     // MARK: Grip
+
     var grip: some View {
         Capsule()
             .fill(Color.gray)
@@ -77,6 +97,7 @@ private extension PlayerView {
     }
 
     // MARK: Cover Art
+
     var coverArt: some View {
         let paddingK = Constants.Maximized.CoverArt.topPaddingK
         let paddingB = Constants.Maximized.CoverArt.topPaddingB
@@ -93,8 +114,9 @@ private extension PlayerView {
         }
         .padding(.top, isMaximized ? max(paddingK * screenSize.height - paddingB, 0) : 0)
     }
-    
+
     // MARK: Maximized player track info
+
     var trackInfo: some View {
         VStack(spacing: 16) {
             HStack { Spacer() }
@@ -114,12 +136,12 @@ private extension PlayerView {
                 startDelay: Constants.marqueeTextStartDelay
             )
         }
-        .lineLimit(1)
         .id(viewModel.mediaSource.id)
         .transition(.identity)
     }
 
     // MARK: Maximized player controls
+
     var playerControls: some View {
         HStack(spacing: Constants.Maximized.Buttons.spacing) {
             Button(action: backward) { Image(systemName: Constants.backwardButtonImage) }
@@ -143,6 +165,7 @@ private extension PlayerView {
     }
 
     // MARK: Volume control
+
     var volumeControl: some View {
         HStack(spacing: 15) {
             Image(systemName: Constants.lowVolumeImage)
@@ -234,24 +257,6 @@ private extension PlayerView {
 
     var isMaximized: Bool { shape == .maximized }
 
-    // MARK: Actions
-
-    func togglePlay() {
-        withAnimation { viewModel.togglePlay() }
-    }
-
-    func backward() {
-        withAnimation { viewModel.backward() }
-    }
-
-    func forward() {
-        withAnimation { viewModel.forward() }
-    }
-
-    func airplay() {
-        print("airplay pressed")
-    }
-
     func maximize() {
         guard isMinimized else { return }
         withAnimation(.spring()) { shape = .maximized }
@@ -271,6 +276,36 @@ private extension PlayerView {
             }
             offset = 0
         }
+    }
+
+    func updateColors() {
+        let coverArt = viewModel
+            .mediaSource
+            .coverArt
+            .convertToRGBColorspace() ?? UIImage()
+        guard let dominantColors = try? coverArt.dominantColorFrequencies(with: .high) else { return }
+
+        withAnimation(.linear.speed(1)) {
+            gradietnModel.colors = dominantColors.prefix(5).map { Color(uiColor: $0.color) }
+        }
+    }
+
+    // MARK: Actions
+
+    func togglePlay() {
+        withAnimation { viewModel.togglePlay() }
+    }
+
+    func backward() {
+        withAnimation { viewModel.backward() }
+    }
+
+    func forward() {
+        withAnimation { viewModel.forward() }
+    }
+
+    func airplay() {
+        print("airplay pressed")
     }
 
     // MARK: Constants

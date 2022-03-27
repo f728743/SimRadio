@@ -12,7 +12,7 @@ struct Library {
 }
 
 extension Library {
-    // swiftlint:disable function_body_length    
+    // swiftlint:disable function_body_length
     static func makeMock() -> Library {
         let mediaLists = [
             [
