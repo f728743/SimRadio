@@ -14,14 +14,14 @@ struct PlayerView: View {
         case minimized
     }
 
-    @Binding private var shape: Shape
+    @State private var shape: Shape
     @State private var volume: CGFloat = 0
     @State private var offset: CGFloat = 0
     @StateObject private var viewModel: ViewModel
     @State private var gradietnModel = AnimatedGradient.Model(colors: [])
-    init(shape: Binding<Shape>) {
-        _shape = shape
+    init(shape: Shape = .minimized) {
         _viewModel = StateObject(wrappedValue: ViewModel())
+        _shape = State(initialValue: shape)
     }
 
     // MARK: body
@@ -67,10 +67,10 @@ struct PlayerView: View {
             DragGesture().onEnded(handleDragEnd(value:)).onChanged(handleDragChange(value:))
         )
         .onChange(of: viewModel.mediaSource.coverArt) { _ in
-            updateColors()
+            updateColors(animation: true)
         }
         .onAppear {
-            updateColors()
+            updateColors(animation: false)
         }
     }
 }
@@ -82,6 +82,7 @@ private extension PlayerView {
         ZStack {
             GradientEffectView($gradietnModel)
                 .opacity(isMaximized ? 1 : 0)
+                .transition(.identity)
             BlurView()
                 .opacity(isMaximized ? 0 : 1)
         }
@@ -214,7 +215,15 @@ private extension PlayerView {
 
     // MARK: Computed params
 
-    var safeArea: UIEdgeInsets? { UIApplication.shared.windows.first?.safeAreaInsets }
+    var safeArea: UIEdgeInsets? {
+        let window = UIApplication
+            .shared
+            .connectedScenes
+            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
+            .first { $0.isKeyWindow }
+        return window?.safeAreaInsets
+    }
+
     var screenSize: CGSize { UIScreen.main.bounds.size }
 
     var playToggleButtonImage: Image {
@@ -278,14 +287,17 @@ private extension PlayerView {
         }
     }
 
-    func updateColors() {
+    func updateColors(animation: Bool) {
         let coverArt = viewModel
             .mediaSource
             .coverArt
             .convertToRGBColorspace() ?? UIImage()
         guard let dominantColors = try? coverArt.dominantColorFrequencies(with: .high) else { return }
 
-        withAnimation(.linear.speed(1)) {
+        // hack: if we have NavigationView in MediaListView, somehow content of MediaListView
+        // appears with weird animation of this speed despite of any .transition(.identity)
+        // even if there is no GradientEffectView in background
+        withAnimation(.linear.speed(animation ? 0.5 : 10000)) {
             gradietnModel.colors = dominantColors.prefix(5).map { Color(uiColor: $0.color) }
         }
     }
@@ -373,6 +385,6 @@ private extension PlayerView {
 struct PlayerView_Previews: PreviewProvider {
     @State static var playerShape = PlayerView.Shape.maximized
     static var previews: some View {
-        PlayerView(shape: $playerShape)
+        PlayerView()
     }
 }

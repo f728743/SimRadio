@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LibraryView: View {
-    @State private var playerShape = PlayerView.Shape.minimized
     @StateObject private var viewModel: ViewModel
 
     init(viewModel: ViewModel) {
@@ -45,8 +44,9 @@ struct LibraryView: View {
                 .navigationTitle("Library")
             }
             .navigationViewStyle(.stack)
-            PlayerView(shape: $playerShape)
-        }.ignoresSafeArea()
+            PlayerView()
+        }
+        .ignoresSafeArea()
     }
 
     enum Constants {
