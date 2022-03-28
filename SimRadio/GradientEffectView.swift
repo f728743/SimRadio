@@ -106,7 +106,7 @@ struct GradientEffectView: View {
                 blot(withParams: blots[0], geometry)
                 blot(withParams: blots[1], geometry)
                 blot(withParams: blots[2], geometry)
-                VisualEffect(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+                VisualEffect(effect: UIBlurEffect(style: .systemUltraThinMaterialLight))
                 VisualEffect(effect: UIBlurEffect(style: .systemUltraThinMaterialDark))
             }
             .frame(width: geometry.size.width, height: geometry.size.height)

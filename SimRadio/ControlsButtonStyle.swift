@@ -23,7 +23,7 @@ struct ControlsButtonStyle: ButtonStyle {
             .offset(x: xOffset)
             .frame(width: size, height: size)
             .background(
-                configuration.isPressed ? Color.gray.opacity(0.3) : Color.clear
+                configuration.isPressed ? Color.gray.opacity(0.5) : Color.clear
             )
             .clipShape(Circle())
             .scaleEffect(configuration.isPressed ? 0.8 : 1)

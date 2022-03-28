@@ -11,11 +11,18 @@ struct CoverArtView: View {
     let image: UIImage
     let size: CGFloat
     let cornerRadius: CGFloat
+    let shadowColor: Color
 
-    init(image: UIImage, size: CGFloat, cornerRadius: CGFloat = 6) {
+    init(
+        image: UIImage,
+        size: CGFloat,
+        cornerRadius: CGFloat = 6,
+        shadowColor: Color = Color(.systemGray3)
+    ) {
         self.image = image
         self.size = size
         self.cornerRadius = cornerRadius
+        self.shadowColor = shadowColor
     }
 
     var body: some View {
@@ -23,7 +30,7 @@ struct CoverArtView: View {
             RoundedRectangle(cornerRadius: cornerRadius)
                 .fill(Color(UIColor.systemBackground))
                 .frame(width: size, height: size)
-                .shadow(color: Color(.systemGray3), radius: Constants.shadowRadius)
+                .shadow(color: shadowColor, radius: Constants.shadowRadius)
             Image(uiImage: image)
                 .resizable()
                 .frame(width: size, height: size)

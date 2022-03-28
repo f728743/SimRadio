@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct LiveIndicatorView: View {
+    let color: Color
+
     var body: some View {
         HStack {
-            bar(colors: [Constants.opaque, Constants.transparent])
+            bar(colors: [color.opacity(0.7), color.opacity(0.1)])
             Text(Constants.text).font(.title3)
-            bar(colors: [Constants.transparent, Constants.opaque])
+            bar(colors: [color.opacity(0.1), color.opacity(0.7)])
         }
     }
 
@@ -27,8 +29,6 @@ struct LiveIndicatorView: View {
     }
 
     enum Constants {
-        static let opaque = Color.primary.opacity(0.7)
-        static let transparent = Color.primary.opacity(0.1)
         static let barWidth: CGFloat = 4
         static let text = "LIVE"
     }
@@ -36,6 +36,6 @@ struct LiveIndicatorView: View {
 
 struct LiveIndicatorView_Previews: PreviewProvider {
     static var previews: some View {
-        LiveIndicatorView()
+        LiveIndicatorView(color: .primary)
     }
 }

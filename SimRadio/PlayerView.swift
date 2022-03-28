@@ -15,7 +15,7 @@ struct PlayerView: View {
     }
 
     @State private var shape: Shape
-    @State private var volume: CGFloat = 0
+    @State private var volume: Double = 0
     @State private var offset: CGFloat = 0
     @StateObject private var viewModel: ViewModel
     @State private var gradietnModel = AnimatedGradient.Model(colors: [])
@@ -42,7 +42,7 @@ struct PlayerView: View {
                     Spacer()
                     VStack {
                         trackInfo
-                        LiveIndicatorView()
+                        LiveIndicatorView(color: Constants.controlsPrimary)
                     }
                     Spacer()
                     playerControls
@@ -56,7 +56,7 @@ struct PlayerView: View {
                 .padding(.top, isMinimized ? screenSize.height : 0) // pushes out maximized player
                 .frame(maxHeight: isMinimized ? 0 : .infinity)
             }
-            .foregroundColor(.primary)
+            .foregroundColor(Constants.controlsPrimary)
             .frame(maxHeight: isMaximized ? .infinity : Constants.Minimized.height)
 
             miniPlayer
@@ -92,7 +92,7 @@ private extension PlayerView {
 
     var grip: some View {
         Capsule()
-            .fill(Color.gray)
+            .fill(Constants.controlsTetiary)
             .frame(width: Constants.gripWidth, height: isMaximized ? Constants.gripHeight : 0)
             .padding(.top, isMaximized ? safeArea?.top : 0)
     }
@@ -107,7 +107,9 @@ private extension PlayerView {
             CoverArtView(
                 image: viewModel.mediaSource.coverArt,
                 size: coverArtSize - coverArtPlayStopIndent * 2,
-                cornerRadius: coverArtCornerRadius
+                cornerRadius: coverArtCornerRadius,
+                shadowColor: isMaximized ?
+                    Constants.Maximized.CoverArt.shadowColor : Constants.Minimized.CoverArt.shadowColor
             )
             .frame(width: coverArtSize, height: coverArtSize)
             .padding(.left, isMinimized ? Constants.Minimized.horizontalPadding : 0)
@@ -119,7 +121,7 @@ private extension PlayerView {
     // MARK: Maximized player track info
 
     var trackInfo: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 4) {
             HStack { Spacer() }
             let fade = Constants.Maximized.titleFadeLength
             MarqueeText(
@@ -136,6 +138,7 @@ private extension PlayerView {
                 rightFade: fade,
                 startDelay: Constants.marqueeTextStartDelay
             )
+            .foregroundColor(Constants.controlsSecondary)
         }
         .id(viewModel.mediaSource.id)
         .transition(.identity)
@@ -170,15 +173,23 @@ private extension PlayerView {
     var volumeControl: some View {
         HStack(spacing: 15) {
             Image(systemName: Constants.lowVolumeImage)
-            Slider(value: $volume)
+            SwiftUISlider(
+                thumbColor: Constants.controlsPrimary,
+                minTrackColor: Constants.controlsSecondary,
+                maxTrackColor: Constants.controlsTetiary,
+                value: $volume
+            )
             Image(systemName: Constants.highVolumeImage)
         }
+        .imageScale(.small)
+        .foregroundColor(Constants.controlsSecondary)
     }
 
     var airplayButton: some View {
         Button(action: airplay) {
             Image(systemName: Constants.airplayImage).font(.title2)
         }
+        .foregroundColor(Constants.controlsSecondary)
         .padding(.bottom, safeArea?.bottom == 0 ? Constants.airplayBottomPadding : safeArea?.bottom)
     }
 
@@ -322,6 +333,7 @@ private extension PlayerView {
 
     // MARK: Constants
 
+    // swiftlint:disable file_length
     // swiftlint:disable nesting
     enum Constants {
         enum Maximized {
@@ -338,6 +350,7 @@ private extension PlayerView {
                 static let topPaddingB: CGFloat = 100
                 static let horizontalPadding: CGFloat = 24
                 static let cornerRadius: CGFloat = 9
+                static let shadowColor: Color = .black.opacity(0.5)
             }
 
             static let spacing: CGFloat = 8
@@ -356,6 +369,7 @@ private extension PlayerView {
             enum CoverArt {
                 static let size: CGFloat = 48
                 static let cornerRadius: CGFloat = 3
+                static let shadowColor: Color = .init(uiColor: .systemGray3)
             }
 
             static let height: CGFloat = 80
@@ -368,6 +382,9 @@ private extension PlayerView {
         static let gripHeight: CGFloat = 5
 
         static let airplayBottomPadding: CGFloat = 16
+        static let controlsPrimary = Color.white
+        static let controlsSecondary = controlsPrimary.opacity(0.6)
+        static let controlsTetiary = controlsPrimary.opacity(0.3)
 
         static let marqueeTextStartDelay: Double = 3
 
